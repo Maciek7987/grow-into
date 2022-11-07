@@ -1,0 +1,47 @@
+@import "variables";
+
+.navigation {
+  display: flex;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: auto;
+  justify-content: space-between;
+  background-color: #fff;
+  z-index: 9999999;
+  transition: $transition;
+}
+
+.logo {
+  width: 80px;
+  height: auto;
+  height: 31.96px;
+  margin: 14.48px 0 8.56px 18px;
+  &__img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.buttonsShop {
+  display: none;
+}
+
+.basket {
+  display: flex;
+  width: 104px;
+  height: 28.22px;
+  justify-content: space-between;
+  align-items: center;
+  margin: 16.78px 18px 10px 0;
+  &__img {
+    @include basketSmall;
+  }
+  &__price {
+    padding-top: 8%;
+    font-family: $caslon;
+    font-size: 13.5px;
+    line-height: 14px;
+  }
+}

@@ -1,0 +1,102 @@
+@import "variables";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: $new-helvetica;
+  overflow-x: hidden;
+}
+#__next {
+  overflow: hidden;
+}
+.button {
+  padding-left: 5%;
+  border-radius: 100px;
+  font-family: $caslon;
+  font-size: 35px;
+  font-weight: 400;
+  font-style: italic;
+  text-align: center;
+  cursor: pointer;
+  transition: $transition;
+}
+.italic {
+  font-style: italic;
+}
+
+h1,
+h2,
+h3 {
+  font-family: $caslon;
+  font-weight: 400;
+}
+
+h1 {
+  font-size: 38px;
+  line-height: 50px;
+  letter-spacing: 0.1px;
+}
+h1 .italic {
+  font-size: 34.9999px;
+}
+h2 {
+  font-size: 25.9999px;
+  line-height: 135%;
+}
+h2 .italic {
+  font-size: 22.9999px;
+}
+
+p,
+li,
+div {
+  font-weight: 500;
+  font-size: 16.9999px;
+  line-height: 30px;
+}
+img {
+  filter: contrast(1.05);
+}
+
+.globalSwiper .swiper-button-prev,
+.globalSwiper .swiper-button-next {
+  display: none;
+}
+.swiper-button-disabled:hover {
+  display: none;
+}
+
+.swiperBuy .swiper-pagination {
+  bottom: 0 !important;
+  height: 56px;
+  &-bullet {
+    width: 56px !important;
+    height: 100%;
+    margin: 0 5.21px 0 0 !important;
+    border: 1px solid $ligth-white-color;
+    border-radius: 0 !important;
+    background-size: 105%;
+    background-position: 45%;
+    background-color: transparent !important;
+    opacity: 1;
+    transition: border-color $transition;
+    &:nth-child(1) {
+      background-image: url("../images/SectionSeventh/miniature1.png");
+    }
+    &:nth-child(2) {
+      background-image: url("../images/SectionSeventh/miniature2.png");
+    }
+    &:nth-child(3) {
+      background-image: url("../images/SectionSeventh/miniature3.png");
+    }
+    &:nth-child(4) {
+      background-image: url("../images/SectionSeventh/miniature4.png");
+    }
+    &-active {
+      border: 1px solid $black-color;
+    }
+  }
+}

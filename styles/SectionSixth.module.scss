@@ -1,0 +1,27 @@
+@import "variables";
+.section {
+  background: $black-color;
+}
+.wrapper {
+  display: grid;
+  grid-template-columns: 116px 158px;
+  grid-template-rows: 176.29px 104.41px 144px;
+  width: 318px;
+  gap: 40px;
+  margin: 0 auto;
+  padding: 60px 0;
+  .textImg {
+    grid-column: 1/2;
+    grid-row: 2/3;
+    width: 104.41px;
+    margin-left: 20px;
+  }
+  .middleImg {
+    grid-column: 2/3;
+    grid-row: 2/-1;
+  }
+  .bottomImg {
+    grid-column: 1/2;
+    grid-row: 3/-1;
+  }
+}

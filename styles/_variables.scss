@@ -1,0 +1,139 @@
+//TYPOGRAPHY
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&display=swap");
+@font-face {
+  font-family: "TeX Gyre";
+  font-style: normal;
+  src: url("../fonts/texgyreheros-regular-webfont.woff") format("woff");
+}
+@font-face {
+  font-family: "Caslon";
+  font-style: normal;
+  src: url("../fonts/librecaslontext-regular-webfont.woff") format("woff");
+}
+@font-face {
+  font-family: "Caslon";
+  font-style: italic;
+  src: url("../fonts/librecaslontext-italic-webfont.woff") format("woff");
+}
+
+$new-helvetica: "Inter", sans-serif;
+$helvetica: "TeX Gyre", sans-serif;
+$caslon: "Caslon", sans-serif;
+
+//STYLES
+$beige-color: #d19d7c;
+$white-color: #f9f5f0;
+$ligth-white-color: #ebebeb;
+$black-color: #0f0e0e;
+$grey-color: #585252;
+$light-grey-color: #898989;
+$transition: 0.3s ease-in-out;
+$link-transition: 0.8s ease-out;
+
+//BASKET
+@mixin basket {
+  position: relative;
+  border: 1px solid #000;
+  border-radius: 2px 2px 4px 4px;
+  background-color: #000;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  transition: background-color $transition;
+  &:hover {
+    background-color: #fff;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateZ(-1px) translate(-50%, -100%);
+    background-repeat: no-repeat;
+  }
+  &Full::after {
+    content: "";
+    position: absolute;
+    border: 1px solid #000;
+    border-radius: 100%;
+    background-color: $beige-color;
+  }
+}
+
+@mixin basketSmall {
+  @include basket;
+  top: 2.25px;
+  width: 20px;
+  height: 20.69px;
+  &::before {
+    background-image: url("../images/navigation/ellipseSmall.svg");
+    top: 0.35px;
+    width: 12px;
+    height: 7px;
+  }
+  &Full::after {
+    right: -4.81px;
+    bottom: -2.7px;
+    width: 10px;
+    height: 10px;
+  }
+}
+@mixin basketDefault {
+  @include basket;
+  top: 7px;
+  width: 20px;
+  height: 22px;
+  &::before {
+    background-image: url("../images/navigation/ellipseSmall.svg");
+    top: 0.35px;
+    width: 12px;
+    height: 7px;
+  }
+  &Full::after {
+    right: -4.81px;
+    bottom: -2.7px;
+    width: 10px;
+    height: 10px;
+  }
+}
+
+@mixin basketLarge {
+  @include basket;
+  top: 7px;
+  width: 22px;
+  height: 24px;
+  &::before {
+    background-image: url("../images/navigation/ellipseLarge.svg");
+    top: 1px;
+    width: 14px;
+    height: 8px;
+  }
+  &Full::after {
+    right: -4.81px;
+    bottom: -2.5px;
+    width: 12px;
+    height: 12px;
+  }
+}
+
+//ANIMATION LINE
+@mixin line {
+  display: flex;
+  position: relative;
+  top: -3px;
+  width: 255%;
+  height: 1px;
+  justify-content: space-between;
+  transform: translate(-101%);
+  transition: $link-transition;
+  &::before {
+    content: "";
+    width: 39%;
+    height: 100%;
+    background-color: $white-color;
+  }
+  &::after {
+    content: "";
+    width: 39%;
+    height: 100%;
+    background-color: $white-color;
+  }
+}

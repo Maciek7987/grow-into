@@ -1,0 +1,33 @@
+.section {
+  background: linear-gradient(
+    126.83deg,
+    #f6eee7 21.87%,
+    rgba(249, 246, 244, 0) 74.33%
+  );
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 31.99px;
+  padding-top: 86.57px;
+  padding-bottom: 90px;
+  .top {
+    display: flex;
+    width: 311px;
+    height: auto;
+    flex-direction: column;
+    gap: 25px;
+    align-items: left;
+    &__description {
+      display: none;
+    }
+  }
+
+  .main {
+    width: 360px;
+    height: 590px;
+    padding-left: 12px;
+  }
+}

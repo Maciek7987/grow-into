@@ -1,0 +1,56 @@
+@import "variables";
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 58.22px;
+  padding-top: 121.37px;
+  padding-bottom: 89.63px;
+  .top {
+    width: 306px;
+    text-align: center;
+  }
+  .main {
+    position: relative;
+    width: 334px;
+    height: 475px;
+    border: 1px solid #000000;
+    border-radius: 30px;
+    text-align: center;
+    background: linear-gradient(
+      17.5deg,
+      #fcf4ed 14.82%,
+      rgba(255, 255, 255, 0) 70.51%
+    );
+    &__logo {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      width: 126.39px;
+      height: 37.83px;
+      background-color: #fff;
+      border-radius: 30px;
+      transform: translate(-50%, -50%);
+      &::before {
+        content: "";
+        position: absolute;
+        left: calc(50% - 100px / 2 + 2px);
+        top: 9.37px;
+        width: 100px;
+        height: 23.08px;
+        background-image: url("../images/sectionFirst/logo.svg");
+        background-size: cover;
+      }
+    }
+    &__subtitle {
+      width: 274.45px;
+      height: 208.87px;
+      margin: 57.54px auto 37.29px;
+    }
+    &__description {
+      width: 222.45px;
+      margin: 0 auto;
+    }
+  }
+}

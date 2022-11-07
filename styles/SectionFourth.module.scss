@@ -1,0 +1,34 @@
+@import "variables";
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 35px;
+  padding-top: 85.11px;
+  padding-bottom: 90.03px;
+  .top {
+    display: flex;
+    width: 317.23px;
+    flex-direction: column;
+    gap: 13.13px;
+    align-items: center;
+    text-align: center;
+    &__description {
+      width: 100%;
+      height: 315.36px;
+      .smallWidth {
+        display: inline-block;
+        width: 93%;
+      }
+    }
+  }
+  .main {
+    width: 286px;
+    height: 286px;
+    &__img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}
