@@ -14,18 +14,80 @@
 }
 
 .logo {
+  position: relative;
   width: 80px;
-  height: auto;
   height: 31.96px;
   margin: 14.48px 0 8.56px 18px;
+  @media (min-width: $tablet) {
+    width: 113px;
+    height: 48px;
+    margin: 20px 0 12px 56px;
+  }
+  .wrap {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    z-index: 420;
+  }
+  .gradient {
+    position: absolute;
+    left: -69%;
+    top: -110%;
+    width: 81.89px;
+    height: 130.07px;
+    background: radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.60) 0%,
+      rgba(255, 255, 255, 0) 65%
+    );
+    transition: $gradient-transition;
+    z-index: 419;
+  }
+
+  .wrap:hover + .gradient {
+    transform: translateX(240%);
+  }
   &__img {
     width: 100%;
     height: 100%;
   }
 }
 
+.wrap {
+  display: flex;
+}
+
 .buttonsShop {
   display: none;
+  height: 21.97px;
+  margin: 32.75px 0 25.28px 0;
+  border-right: 1px solid black;
+  @media (min-width: $tablet) {
+    display: flex;
+  }
+  &__item {
+    display: inline-block;
+    padding-right: 22.5px;
+    list-style: none;
+    .link {
+      display: block;
+      overflow: hidden;
+      font-size: 15.5px;
+      font-weight: 600;
+      line-height: 24px;
+      text-decoration: none;
+      color: black;
+      .line {
+        @include line(black);
+      }
+      &:hover .line {
+        transform: translateX(0);
+      }
+    }
+  }
 }
 
 .basket {
@@ -35,13 +97,19 @@
   justify-content: space-between;
   align-items: center;
   margin: 16.78px 18px 10px 0;
+  @media (min-width: $tablet) {
+    height: 30px;
+    margin: 28.47px 58px 21.53px 30.75px;
+  }
   &__img {
     @include basketSmall;
+    @media (min-width: $tablet) {
+      @include basketDefault;
+    }
   }
   &__price {
     padding-top: 8%;
     font-family: $caslon;
-    font-size: 13.5px;
-    line-height: 14px;
+    font-size: 13.4px;
   }
 }

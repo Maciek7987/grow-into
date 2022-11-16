@@ -7,9 +7,17 @@
   gap: 58.22px;
   padding-top: 121.37px;
   padding-bottom: 89.63px;
+  @media (min-width: $tablet) {
+    gap: 103.41px;
+    padding-top: 226px;
+    padding-bottom: 180.8px;
+  }
   .top {
     width: 306px;
     text-align: center;
+    @media (min-width: $tablet) {
+      width: 847.73px;
+    }
   }
   .main {
     position: relative;
@@ -23,15 +31,24 @@
       #fcf4ed 14.82%,
       rgba(255, 255, 255, 0) 70.51%
     );
+    @media (min-width: $tablet) {
+      width: 72%;
+      max-width: 1038px;
+      height: auto;
+    }
     &__logo {
       position: absolute;
       left: 50%;
       top: 0;
       width: 126.39px;
       height: 37.83px;
-      background-color: #fff;
       border-radius: 30px;
+      background-color: #fff;
       transform: translate(-50%, -50%);
+      @media (min-width: $tablet) {
+        width: 172px;
+        height: 66.17px;
+      }
       &::before {
         content: "";
         position: absolute;
@@ -41,16 +58,33 @@
         height: 23.08px;
         background-image: url("../images/sectionFirst/logo.svg");
         background-size: cover;
+        @media (min-width: $tablet) {
+          left: calc(50% - 117px / 2 + 2px);
+          top: 21.17px;
+          width: 117px;
+          height: 22.57px;
+        }
       }
     }
     &__subtitle {
       width: 274.45px;
       height: 208.87px;
       margin: 57.54px auto 37.29px;
+      @media (min-width: $tablet) {
+        display: inline-block;
+        width: 80.5%;
+        height: auto;
+        margin: 83.54px auto 17.27px;
+      }
     }
     &__description {
       width: 222.45px;
       margin: 0 auto;
+      @media (min-width: $tablet) {
+        width: 472.45px;
+        height: 92.31px;
+        margin: 0 auto 47.69px;
+      }
     }
   }
 }

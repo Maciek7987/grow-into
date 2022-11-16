@@ -5,19 +5,14 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-import styles from "../styles/SliderBuy.module.scss";
+import styles from "../styles/SliderShop.module.scss";
 
 import book1 from "../images/header/book1.png";
 import book2 from "../images/sectionSecond/book2.png";
 import book3 from "../images/sectionThird/book3.png";
-import book4 from "../images/SectionSeventh/book4.png";
+import book4 from "../images/sectionShop/book4.png";
 
-// import miniature29 from "../images/SectionSeventh/miniature29.png";
-// import miniature30 from "../images/SectionSeventh/miniature30.png";
-// import miniature31 from "../images/SectionSeventh/miniature31.png";
-// import miniature32 from "../images/SectionSeventh/miniature32.png";
-
-export default function SliderBuy() {
+export default function SliderShop() {
   return (
     <>
       <Swiper
@@ -29,9 +24,9 @@ export default function SliderBuy() {
         }}
         navigation={true}
         modules={[Pagination, Navigation]}
-        className={`${styles.swiperBuy} globalSwiper swiperBuy`}
+        className={`${styles.swiperShop} globalSwiper swiperShop`}
       >
-        <SwiperSlide className={styles.swiperBuy__slide}>
+        <SwiperSlide className={styles.swiperShop__slide}>
           <div className={styles.wrap}>
             <Image
               className={`${styles.img} ${styles.firstImg}`}
@@ -40,7 +35,7 @@ export default function SliderBuy() {
             />
           </div>
         </SwiperSlide>
-        <SwiperSlide className={styles.swiperBuy__slide}>
+        <SwiperSlide className={styles.swiperShop__slide}>
           <div className={styles.wrap}>
             <Image
               className={`${styles.img} ${styles.secondImg}`}
@@ -49,7 +44,7 @@ export default function SliderBuy() {
             />
           </div>
         </SwiperSlide>
-        <SwiperSlide className={styles.swiperBuy__slide}>
+        <SwiperSlide className={styles.swiperShop__slide}>
           <div className={styles.wrap}>
             <Image
               quality={100}
@@ -59,7 +54,7 @@ export default function SliderBuy() {
             />
           </div>
         </SwiperSlide>
-        <SwiperSlide className={styles.swiperBuy__slide}>
+        <SwiperSlide className={styles.swiperShop__slide}>
           <div className={styles.wrap}>
             <Image
               quality={100}

@@ -12,8 +12,9 @@ body {
 #__next {
   overflow: hidden;
 }
+//button with italic text
 .button {
-  padding-left: 5%;
+  padding-left: 1%;
   border-radius: 100px;
   font-family: $caslon;
   font-size: 35px;
@@ -22,6 +23,9 @@ body {
   text-align: center;
   cursor: pointer;
   transition: $transition;
+  @media (min-width: $tablet) {
+    font-size: 48px;
+  }
 }
 .italic {
   font-style: italic;
@@ -38,13 +42,23 @@ h1 {
   font-size: 38px;
   line-height: 50px;
   letter-spacing: 0.1px;
+  @media (min-width: $tablet) {
+    font-size: 52px;
+    line-height: 70px;
+  }
 }
 h1 .italic {
   font-size: 34.9999px;
+  @media (min-width: $tablet) {
+    font-size: 47.9999px;
+  }
 }
 h2 {
   font-size: 25.9999px;
   line-height: 135%;
+  @media (min-width: $tablet) {
+    font-size: 27.9999px;
+  }
 }
 h2 .italic {
   font-size: 22.9999px;
@@ -56,47 +70,119 @@ div {
   font-weight: 500;
   font-size: 16.9999px;
   line-height: 30px;
+  letter-spacing: -0.3px;
 }
 img {
   filter: contrast(1.05);
 }
 
-.globalSwiper .swiper-button-prev,
-.globalSwiper .swiper-button-next {
-  display: none;
+.swiper-button-prev,
+.swiper-button-next {
+  display: none !important;
+  transition: $transition;
+  &::after {
+    display: none;
+  }
+  &::before {
+    content: "";
+    height: 47px !important;
+    width: 25px !important;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
 }
 .swiper-button-disabled:hover {
   display: none;
 }
 
-.swiperBuy .swiper-pagination {
-  bottom: 0 !important;
-  height: 56px;
-  &-bullet {
-    width: 56px !important;
-    height: 100%;
-    margin: 0 5.21px 0 0 !important;
-    border: 1px solid $ligth-white-color;
-    border-radius: 0 !important;
-    background-size: 105%;
-    background-position: 45%;
-    background-color: transparent !important;
-    opacity: 1;
-    transition: border-color $transition;
-    &:nth-child(1) {
-      background-image: url("../images/SectionSeventh/miniature1.png");
+.swiper-button-prev {
+  &:hover {
+    transform: translateX(-20%);
+  }
+  &::before {
+    background-image: url("../images/sectionPages/arrow-left.svg");
+  }
+}
+.swiper-button-next {
+  &:hover {
+    transform: translateX(20%);
+  }
+  &::before {
+    background-image: url("../images/sectionPages/arrow-right.svg");
+  }
+}
+
+.swiperPages {
+  .swiper-button-prev,
+  .swiper-button-next {
+    @media (min-width: $tablet) {
+      display: flex !important;
     }
-    &:nth-child(2) {
-      background-image: url("../images/SectionSeventh/miniature2.png");
+  }
+  .swiper-button-prev {
+    left: 2.5% !important;
+    top: 43% !important;
+  }
+  .swiper-button-next {
+    right: 2.5% !important;
+    top: 43% !important;
+  }
+}
+
+.swiperShop {
+  .swiper-button-prev,
+  .swiper-button-next {
+    @media (min-width: $large-tablet) {
+      display: flex !important;
     }
-    &:nth-child(3) {
-      background-image: url("../images/SectionSeventh/miniature3.png");
+  }
+  .swiper-button-prev {
+    left: 37.75px !important;
+    top: 32% !important;
+  }
+  .swiper-button-next {
+    right: 37.75px !important;
+    top: 32% !important;
+  }
+  .swiper-pagination {
+    bottom: 0 !important;
+    height: 56px;
+    @media (min-width: $large-tablet) {
+      height: 96.17px;
+      grid-row: 2/-1;
+      background-color: #fff;
+      z-index: 420;
     }
-    &:nth-child(4) {
-      background-image: url("../images/SectionSeventh/miniature4.png");
-    }
-    &-active {
-      border: 1px solid $black-color;
+    &-bullet {
+      width: 56px !important;
+      height: 100%;
+      margin: 0 5.21px 0 0 !important;
+      border: 1px solid $ligth-white-color;
+      border-radius: 0 !important;
+      background-size: 105%;
+      background-position: 45%;
+      background-color: transparent !important;
+      opacity: 1;
+      transition: border-color $transition;
+      @media (min-width: $large-tablet) {
+        width: 96.17px !important;
+        margin: 0 9.72px 0 0 !important;
+      }
+      &:nth-child(1) {
+        background-image: url("../images/sectionShop/miniature1.png");
+      }
+      &:nth-child(2) {
+        background-image: url("../images/sectionShop/miniature2.png");
+      }
+      &:nth-child(3) {
+        background-image: url("../images/sectionShop/miniature3.png");
+      }
+      &:nth-child(4) {
+        background-image: url("../images/sectionShop/miniature4.png");
+      }
+      &-active {
+        border: 1px solid $black-color;
+      }
     }
   }
 }

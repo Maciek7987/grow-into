@@ -5,9 +5,9 @@ import SectionFirst from "../components/SectionFirst";
 import SectionSecond from "../components/SectionSecond";
 import SectionThird from "../components/SectionThird";
 import SectionFourth from "../components/SectionFourth";
-import SectionFifth from "../components/SectionFifth";
-import SectionSixth from "../components/SectionSixth";
-import SectionSeventh from "../components/SectionSeventh";
+import SectionPages from "../components/SectionPages";
+import SectionPictures from "../components/SectionPictures";
+import SectionShop from "../components/SectionShop";
 import Footer from "../components/Footer";
 
 export default function Home() {
@@ -26,9 +26,9 @@ export default function Home() {
       <SectionSecond />
       <SectionThird />
       <SectionFourth />
-      <SectionFifth />
-      <SectionSixth />
-      <SectionSeventh />
+      <SectionPages />
+      <SectionPictures />
+      <SectionShop />
       <Footer />
     </>
   );

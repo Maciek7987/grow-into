@@ -1,7 +1,7 @@
 import Slider from "./SliderPages";
-import styles from "../styles/SectionFifth.module.scss";
+import styles from "../styles/sectionPages.module.scss";
 
-export default function SectionFourth() {
+export default function SectionPages() {
   return (
     <section className={styles.section}>
       <article className={styles.wrapper}>
@@ -11,7 +11,7 @@ export default function SectionFourth() {
             Clear structure — Dynamic prompts
           </p>
         </div>
-        <div className={styles.main}>
+        <div className={styles.slider}>
           <Slider />
         </div>
       </article>

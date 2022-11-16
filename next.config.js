@@ -2,6 +2,9 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-}
+};
 
-module.exports = nextConfig
+nextConfig.images = {
+  deviceSizes: [360, 1440, 1920],
+};
+module.exports = nextConfig;

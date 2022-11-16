@@ -7,25 +7,87 @@
     #f0dfd0 45.73%,
     #e2d4c7 67.56%
   );
+  @media (min-width: $tablet) {
+    position: relative;
+    height: 800px;
+    background: linear-gradient(
+      115.44deg,
+      #f8f5f3 16.55%,
+      #f0dfd0 43.26%,
+      #e2d4c7 85.64%
+    );
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      bottom: 720px;
+      left: 0;
+      right: 0;
+      background: #fff;
+    }
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 70px;
+      bottom: 348px;
+      left: 0;
+      right: 0;
+      background: linear-gradient(
+        180deg,
+        #ffffff 3.4%,
+        rgba(249, 244, 239, 0) 101.31%
+      );
+    }
+  }
 }
 
 .hero {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 30.93px;
   margin-top: 55px;
   padding-top: 34.02px;
+  z-index: 88888;
+  @media (min-width: $tablet) {
+    display: grid;
+    grid-template-columns: 408px 1fr;
+    width: 87%;
+    max-width: 1622.98px;
+    align-items: start;
+    grid-gap: 0;
+    margin: 0 auto;
+    padding-top: 200.02px;
+    padding-left: 36px;
+  }
   .left {
     display: grid;
-    width: 263px;
     grid-template-columns: 1fr;
     grid-template-rows: 150px 104.44px 50px;
+    width: 263px;
     justify-items: center;
-    align-items: center;
     text-align: center;
+    @media (min-width: $tablet) {
+      grid-template-rows: 225px 127.92px 50px;
+      width: 100%;
+      justify-items: start;
+      text-align: left;
+      &__title {
+        font-size: 59.9999px;
+        line-height: 75px;
+        .italic {
+          font-size: 56.9999px;
+        }
+      }
+    }
     &__description {
-      padding: 12.5px 0 31.94px;
+      padding: 12.5px 1px 31.94px;
+      @media (min-width: $tablet) {
+        padding: 26.98px 130px 40.94px 0;
+      }
     }
     &__btn {
       display: flex;
@@ -36,12 +98,14 @@
       align-items: center;
       border: 1px solid #000;
       border-radius: 36px;
-      font-family: "Inter";
-      font-weight: 500;
+      font-family: $new-helvetica;
       font-size: 16px;
       background: #fff;
       cursor: pointer;
       transition: $transition;
+      @media (min-width: $tablet) {
+        width: 121px;
+      }
       .text {
         display: block;
         font-weight: 500;
@@ -50,6 +114,7 @@
       .arrow {
         position: relative;
         left: 0;
+        top: 1px;
         width: 8.1px;
         height: 13.1px;
         transform: scale(1.01);
@@ -58,11 +123,11 @@
       &:hover {
         background-color: #000;
         .text {
-          font-weight: 300;
+          font-weight: 200;
           color: $white-color;
         }
         .arrow {
-          left: 2%;
+          left: 3%;
           transform: scale(1.05);
           &__path {
             stroke: $white-color;
@@ -75,10 +140,19 @@
     width: 341.19px;
     height: 275.61px;
     margin-right: 3.74px;
+    @media (min-width: $tablet) {
+      width: 100%;
+      max-width: 1080px;
+      height: auto;
+    }
     &__img {
       width: 100%;
       height: auto;
+      filter: contrast(1.05);
       transform: translate(-3.5%, 6%) scale(1.13);
+      @media (min-width: $tablet) {
+        transform: translate(-5%, 14.5%) scale(1.2);
+      }
     }
   }
 }

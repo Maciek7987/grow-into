@@ -1,0 +1,79 @@
+@import "variables";
+.section {
+  position: relative;
+  background: $black-color;
+}
+.wrapper {
+  display: grid;
+  grid-template-columns: 116px 158px;
+  grid-template-rows: 176.29px 104.41px 144px;
+  width: 318px;
+  row-gap: 39.5px;
+  column-gap: 44px;
+  margin: 0 auto;
+  padding: 60px 0;
+  @media (min-width: $tablet) {
+    grid-template-columns: 49% 34.6%;
+    grid-template-rows: auto auto;
+    width: 90%;
+    max-width: 1169.5px;
+    row-gap: 190px;
+    column-gap: 16.4%;
+    padding: 150px 0;
+  }
+  .img {
+    width: auto;
+    height: 100%;
+    border-radius: 30px;
+    @media (min-width: $tablet) {
+      width: 100%;
+      height: auto;
+    }
+  }
+  .wrap {
+    width: auto;
+    height: auto;
+    grid-column: 2/3;
+    grid-row: 2/-1;
+    .wrapTextImg {
+      display: none;
+    }
+    .middleImg {
+      width: 100%;
+      height: auto;
+    }
+    @media (min-width: $tablet) {
+      position: relative;
+      top: 190px;
+      grid-row: 1/-1;
+      .wrapTextImg {
+        display: block;
+        position: absolute;
+        left: -27%;
+        top: -10%;
+        width: 60%;
+        height: auto;
+        z-index: 420;
+      }
+    }
+  }
+  .textImg {
+    width: 104.41px;
+    grid-column: 1/2;
+    grid-row: 2/3;
+    margin-left: 20px;
+    @media (min-width: $tablet) {
+      display: none;
+    }
+  }
+
+  .bottomImg {
+    grid-column: 1/2;
+    grid-row: 3/-1;
+    @media (min-width: $tablet) {
+      width: 67.5%;
+      justify-self: center;
+      grid-row: 2/-1;
+    }
+  }
+}

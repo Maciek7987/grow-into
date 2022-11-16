@@ -1,0 +1,51 @@
+@import "variables";
+
+.swiperShop {
+  height: 100%;
+  @media (min-width: $large-tablet) {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 71% 106.43px;
+    width: 100%;
+    height: auto;
+  }
+}
+.swiperShop__slide {
+  transition: $transition;
+  .wrap {
+    width: 100%;
+    height: 392.86px;
+    overflow: hidden;
+    @media (min-width: $large-tablet) {
+      height: 100%;
+      grid-row: 1/2;
+    }
+  }
+  .img {
+    width: 100%;
+    height: auto;
+  }
+  .firstImg {
+    transform: scale(1.05) translate(-3%, 24%);
+    @media (min-width: $large-tablet) {
+      transform: scale(0.85) translate(-2%, 18%);
+    }
+  }
+  .secondImg {
+    transform: scale(1.4) translate(1%, 10%);
+    @media (min-width: $large-tablet) {
+      transform: scale(1.1) translate(1%, 3%);
+    }
+  }
+  .thirdImg {
+    @media (min-width: $large-tablet) {
+      transform: scale(0.85) translate(1%, -8%);
+    }
+  }
+  .fourthImg {
+    transform: scale(1.4);
+    @media (min-width: $large-tablet) {
+      transform: scale(1) translate(0, -10%);
+    }
+  }
+}

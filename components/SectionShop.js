@@ -1,7 +1,7 @@
-import Slider from "./SliderBuy";
-import styles from "../styles/SectionSeventh.module.scss";
+import Slider from "./SliderShop";
+import styles from "../styles/SectionShop.module.scss";
 
-export default function SectionSeventh() {
+export default function SectionShop() {
   return (
     <section className={styles.section}>
       <article className={styles.wrapper}>
@@ -9,7 +9,7 @@ export default function SectionSeventh() {
           <h1 className={styles.top__title}>Grow Into Journal</h1>
           <h2 className={styles.top__price}>45 USD</h2>
         </div>
-        <div className={styles.left}>
+        <div className={styles.slider}>
           <Slider />
         </div>
         <div className={styles.main}>
@@ -22,7 +22,9 @@ export default function SectionSeventh() {
             <li className={styles.item}>
               Clear structure for a comforting routine
             </li>
-            <li className={styles.item}>Prompts to help you get to know</li>
+            <li className={styles.item}>
+              Prompts to help you get to know yourself
+            </li>
             <li className={styles.item}> Exercises to help ground you</li>
           </ul>
           <p className={styles.main__summary}>

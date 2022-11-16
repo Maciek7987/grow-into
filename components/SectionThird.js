@@ -1,13 +1,15 @@
 import Image from "next/image";
 import styles from "../styles/SectionThird.module.scss";
-import book from "../images/sectionThird/book3.png";
+import book from "../images/sectionThird/Bez nazwy.png";
 
 export default function SectionThird() {
   return (
     <section className={styles.section}>
       <article className={styles.wrapper}>
         <div className={styles.top}>
-          <h1 className={styles.top__title}>How does Grow Into Work?</h1>
+          <h1 className={styles.top__title}>
+            How does <span className={styles.italic}>Grow Into</span> Work?
+          </h1>
           <p className={styles.top__description}>
             The Grow Into journal itself is not magic - It just has a little
             magic dust in it. Your actions are what make your self grow.

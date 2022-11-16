@@ -8,11 +8,17 @@
 }
 .wrapper {
   display: grid;
+  position: relative;
   grid-template-columns: 1fr;
   grid-template-rows: 209px 322.41px 342.39px 240.22px;
   justify-items: center;
   padding-top: 87.29px;
   padding-bottom: 80px;
+  @media (min-width: $tablet) {
+    grid-template-rows: 212.07px minmax(995px, 1fr) 30px 141px;
+    padding-top: 179.62px;
+    padding-bottom: 180.2px;
+  }
   .top {
     display: flex;
     width: 330px;
@@ -20,23 +26,36 @@
     gap: 11.07px;
     align-items: center;
     text-align: center;
+    @media (min-width: $tablet) {
+      width: 356px;
+      gap: 24.07px;
+    }
     &__description {
       width: 289.74px;
+      @media (min-width: $tablet) {
+        width: 100%;
+      }
       .smallWidth {
         display: inline-block;
-        width: 80%;
+        width: 85%;
+        @media (min-width: $tablet) {
+          display: inline;
+        }
       }
     }
   }
   .book {
     width: 360px;
     height: 100%;
-    &__img {
-      box-sizing: content-box;
-      width: 130%;
+    @media (min-width: $tablet) {
+      width: 90%;
+      max-width: 1120px;
       height: auto;
-      border: 5px solid rgba(#f4f1ef, 0.2);
-      transform: translate(-11%, -12%);
+    }
+    &__img {
+      width: 135%;
+      height: auto;
+      transform: translate(-6.5%, -9%);
     }
   }
   .main {
@@ -46,12 +65,26 @@
     gap: 13.65px;
     align-items: center;
     text-align: center;
+    z-index: 420;
+    @media (min-width: $tablet) {
+      position: absolute;
+      bottom: 495.67px;
+      width: 742.84px;
+      gap: 37.53px;
+    }
     &__subtitle {
       width: 346px;
       height: 108.68px;
+      @media (min-width: $tablet) {
+        width: 59%;
+        height: auto;
+      }
       .smallWidth {
         display: inline-block;
         width: 70%;
+        @media (min-width: $tablet) {
+          display: inline;
+        }
       }
     }
     &__list {
@@ -59,6 +92,11 @@
       align-self: flex-start;
       padding-left: 77.12px;
       text-align: start;
+      @media (min-width: $tablet) {
+        display: flex;
+        gap: 70px;
+        padding-left: 0;
+      }
       .item {
         margin-bottom: 24.96px;
         padding-left: calc(18.38px + 15px);
@@ -66,21 +104,52 @@
         background: url("../images/sectionSecond/star.svg") no-repeat left
           center;
         vertical-align: middle;
+        @media (min-width: $tablet) {
+          display: flex;
+          margin-bottom: 0;
+          padding-left: 25px;
+        }
       }
     }
   }
   .bottom {
     display: flex;
     width: 270px;
+    height: auto;
+    grid-row: auto/-1;
     flex-direction: column;
     gap: 28px;
     align-items: center;
     text-align: center;
+    .opacity {
+      display: none;
+    }
+    @media (min-width: $tablet) {
+      display: block;
+      position: relative;
+      width: 716.67px;
+      &__title {
+        line-height: 124%;
+      }
+      .opacity {
+        display: inline-block;
+        width: 351.5px;
+        height: 79.5px;
+        line-height: 79.5px;
+      }
+    }
     &__btn {
       width: 270px;
       height: 65px;
       border: 1px solid #000;
       background-color: #fff;
+      @media (min-width: $tablet) {
+        position: absolute;
+        left: 37.6%;
+        top: 46%;
+        width: 351.5px;
+        height: 79.5px;
+      }
       &:hover {
         font-weight: 300;
         background-color: #000;

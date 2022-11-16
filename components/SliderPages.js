@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
 import "swiper/css";
@@ -7,11 +8,11 @@ import "swiper/css/pagination";
 
 import styles from "../styles/SliderPages.module.scss";
 
-import screenshot1 from "../images/sectionFifth/screenshot1.png";
-import screenshot2 from "../images/sectionFifth/screenshot2.png";
-import screenshot3 from "../images/sectionFifth/screenshot3.png";
-import screenshot4 from "../images/sectionFifth/screenshot4.png";
-import screenshot5 from "../images/sectionFifth/screenshot5.png";
+import screenshot1 from "../images/sectionPages/screenshot1.png";
+import screenshot2 from "../images/sectionPages/screenshot2.png";
+import screenshot3 from "../images/sectionPages/screenshot3.png";
+import screenshot4 from "../images/sectionPages/screenshot4.png";
+import screenshot5 from "../images/sectionPages/screenshot5.png";
 
 function Product({ text, number, title, paragraph, src, alt }) {
   return (
@@ -19,7 +20,7 @@ function Product({ text, number, title, paragraph, src, alt }) {
       <div className={styles.left}>
         <div className={styles.wrap}>
           <div className={styles.left__rectangle}>{text}</div>
-          <div className={`${styles.left__number} italic`}>
+          <div className={`${styles.number} italic`}>
             {number}
             <span className={styles.rotate}>/</span>5
           </div>
@@ -29,7 +30,7 @@ function Product({ text, number, title, paragraph, src, alt }) {
       </div>
       <div className={styles.right}>
         <Image
-          quality={100}
+          unoptimized={true}
           className={styles.right__img}
           src={src}
           alt={alt}
@@ -39,18 +40,36 @@ function Product({ text, number, title, paragraph, src, alt }) {
   );
 }
 
-export default function Slider() {
+export default function SliderPages() {
+  const [percentages, setPercentages] = useState(0);
   return (
     <>
+      <div
+        className={` ${styles.numberForLargeDevice} ${styles.number} italic`}
+      >
+        <div
+          className={styles.wrap}
+          style={{ transform: `translateY(-${percentages}%)` }}
+        >
+          <span>1</span>
+          <span>2</span>
+          <span>3</span>
+          <span>4</span>
+          <span>5</span>
+        </div>
+        <span className={styles.rotate}>/</span>5
+      </div>
       <Swiper
-        slidesPerView={1.06}
+        onSlideChange={(swiper) => setPercentages(swiper.activeIndex * 100)}
+        slidesPerView={1.1}
         spaceBetween={17}
         navigation={true}
         modules={[Navigation]}
         className={`${styles.swiperPages} globalSwiper swiperPages`}
         breakpoints={{
-          360: {
-            width: 331,
+          860: {
+            slidesPerView: 1,
+            spaceBetween: 0,
           },
         }}
       >

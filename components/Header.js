@@ -8,7 +8,8 @@ export default function Header() {
       <section className={styles.hero}>
         <div className={styles.left}>
           <h1 className={styles.left__title}>
-            Are you ready to <span className="italic"> Grow Into</span> your
+            Are you ready to{" "}
+            <span className={`italic ${styles.italic}`}> Grow Into</span> your
             self?
           </h1>
           <p className={styles.left__description}>
@@ -37,6 +38,7 @@ export default function Header() {
             className={styles.book__img}
             src={book}
             alt="book grow into journal"
+            quality={90}
           />
         </div>
       </section>

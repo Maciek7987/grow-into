@@ -10,18 +10,46 @@
   justify-items: center;
   padding-top: 85.61px;
   padding-bottom: 90px;
+  @media (min-width: $tablet) {
+    grid-template-columns: auto 1fr;
+    grid-template-rows: 211.81px 1189.76px 79px;
+    padding-top: 175.8px;
+    padding-bottom: 180px;
+  }
   .top {
     display: flex;
-    width: 320px;
+    width: 313px;
     flex-direction: column;
     gap: 13.81px;
     align-items: center;
+    @media (min-width: $tablet) {
+      width: 677px;
+      grid-column: 1/-1;
+      justify-self: flex-start;
+      gap: 26.81px;
+      align-items: flex-start;
+      margin-left: 130px;
+      .italic {
+        font-size: 47.9999px;
+        font-style: italic;
+      }
+    }
     &__description {
       font-weight: 300;
+      @media (min-width: $tablet) {
+        width: 600px;
+      }
     }
   }
   .left {
-    width: 320px;
+    width: 310px;
+    @media (min-width: $tablet) {
+      grid-column: 1/2;
+      justify-self: start;
+      width: 40vw;
+      max-width: 474.4px;
+      margin-left: 130px;
+    }
     &__list {
       display: grid;
       grid-template-columns: 1fr;
@@ -29,14 +57,24 @@
     .item {
       display: block;
       height: auto;
-      padding: 27.87px 0 42.93px;
+      padding: 27.87px 0 42.93px 0;
       list-style: none;
       border-bottom: 1px solid $grey-color;
       &:first-child {
         padding-top: 0;
+        @media (min-width: $tablet) {
+          .item__description {
+            width: 70%;
+          }
+        }
       }
       &:last-child {
         border: none;
+        @media (min-width: $tablet) {
+          .item__description {
+            width: 70%;
+          }
+        }
       }
       &__subtitle {
         height: 70px;
@@ -44,20 +82,33 @@
       }
       &__description {
         font-weight: 300;
+        @media (min-width: $tablet) {
+          width: 70.9%;
+          min-width: 310px;
+        }
       }
     }
   }
   .book {
     width: 360px;
     height: 100%;
-    background-image: url("../images/sectionThird/ellipse.png");
+    background-image: url("../images/sectionThird/ellipse1.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: -2px -10px;
+    @media (min-width: $tablet) {
+      grid-column: 2/-1;
+      width: 90%;
+      height: auto;
+      max-width: 924.39px;
+      background-image: url("../images/sectionThird/ellipse2.png");
+      background-size: 110%;
+      background-position: 115% top;
+    }
     &__img {
       width: 100%;
       height: auto;
-      transform: translate(-2%, 14%) scale(1.45);
+      filter: contrast(1);
     }
   }
   .bottom {
@@ -67,9 +118,19 @@
     justify-content: flex-end;
     align-items: center;
     text-align: center;
+    @media (min-width: $tablet) {
+      width: auto;
+      grid-column: 1/-1;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
     &__title {
+      width: 256.67px;
       height: 59.22px;
-      vertical-align: top;
+      @media (min-width: $tablet) {
+        line-height: 59.22px;
+      }
     }
     &__btn {
       width: 230px;
@@ -77,6 +138,11 @@
       border: 1px solid $white-color;
       background-color: #000;
       color: $white-color;
+      z-index: 420;
+      @media (min-width: $tablet) {
+        width: 311px;
+        height: 79px;
+      }
       &:hover {
         border: 1px solid #000;
         background-color: $white-color;

@@ -24,15 +24,29 @@ export default function Navigation() {
   return (
     <nav ref={nav} className={styles.navigation}>
       <div className={styles.logo}>
+        <div className={styles.wrap}/>
+        <div className={styles.gradient}/>
         <Image className={styles.logo__img} src={logo} alt="logo" />
       </div>
-      <div className={styles.buttonsShop}>
-        <a href="#">buy now</a>
-        <a href="#">how it works</a>
-      </div>
-      <div className={styles.basket}>
-        <div className={`${styles.basket__img} ${styles.basket__imgFull}`} />
-        <div className={styles.basket__price}>{number} USD</div>
+      <div className={styles.wrap}>
+        <ul className={styles.buttonsShop}>
+          <li className={styles.buttonsShop__item}>
+            <a className={styles.link} href="#">
+              buy now
+              <div className={styles.line} />
+            </a>
+          </li>
+          <li className={styles.buttonsShop__item}>
+            <a className={styles.link} href="#">
+              how it works
+              <div className={styles.line} />
+            </a>
+          </li>
+        </ul>
+        <div className={styles.basket}>
+          <div className={`${styles.basket__img} ${styles.basket__imgFull}`} />
+          <div className={styles.basket__price}>{number} USD</div>
+        </div>
       </div>
     </nav>
   );

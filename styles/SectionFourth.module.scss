@@ -7,6 +7,11 @@
   gap: 35px;
   padding-top: 85.11px;
   padding-bottom: 90.03px;
+  @media (min-width: $tablet) {
+    gap: 0;
+    padding-top: 169.59px;
+    padding-bottom: 159.88px;
+  }
   .top {
     display: flex;
     width: 317.23px;
@@ -14,18 +19,33 @@
     gap: 13.13px;
     align-items: center;
     text-align: center;
+    @media (min-width: $tablet) {
+      width: 590.39px;
+      gap: 26.13px;
+    }
     &__description {
       width: 100%;
       height: 315.36px;
+      font-size: 17.5px;
+      @media (min-width: $tablet) {
+        height: 246.68px;
+      }
       .smallWidth {
         display: inline-block;
-        width: 93%;
+        width: 92.5%;
+        @media (min-width: $tablet) {
+          display: inline;
+        }
       }
     }
   }
   .main {
     width: 286px;
     height: 286px;
+    @media (min-width: $tablet) {
+      width: 381px;
+      height: 381px;
+    }
     &__img {
       width: 100%;
       height: auto;
