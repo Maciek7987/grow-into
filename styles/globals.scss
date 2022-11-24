@@ -12,6 +12,54 @@ body {
 #__next {
   overflow: hidden;
 }
+
+//button with arrow
+.btn {
+  display: flex;
+  gap: 9px;
+  justify-content: center;
+  align-items: center;
+  padding-left: 3px;
+  border: 1px solid #000;
+  border-radius: 36px;
+  font-family: $new-helvetica;
+  font-size: 16px;
+  letter-spacing: -0.5px;
+  cursor: pointer;
+  transition: $transition;
+  @media (min-width: $desktop) {
+    gap: 17px;
+    font-size: 18px;
+  }
+  .text {
+    display: block;
+    font-weight: 500;
+    transition: $transition;
+  }
+  .arrow {
+    position: relative;
+    left: 0;
+    top: 1px;
+    width: 8.1px;
+    height: 13.1px;
+    transform: scale(1.01);
+    transition: $transition;
+    @media (min-width: $desktop) {
+      width: 9.1px;
+      height: 15.1px;
+    }
+  }
+  &:hover {
+    .text {
+      font-weight: 200;
+    }
+    .arrow {
+      left: 3%;
+      transform: scale(1.05);
+    }
+  }
+}
+
 //button with italic text
 .button {
   padding-left: 1%;
@@ -30,6 +78,7 @@ body {
     font-size: 54.9999px;
   }
 }
+
 .italic {
   font-style: italic;
 }
@@ -79,9 +128,10 @@ h1 .italic {
 }
 h2 {
   font-size: 25.9999px;
-  line-height: 135%;
+  line-height: 35px;
   @media (min-width: $desktop) {
     font-size: 29.9999px;
+    line-height: 40px;
   }
 }
 h2 .italic {
