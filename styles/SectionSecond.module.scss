@@ -125,7 +125,7 @@
         margin-bottom: 24.96px;
         padding-left: calc(18.38px + 15px);
         list-style: none;
-        background: url("../images/sectionSecond/star.svg") no-repeat left
+        background: url("../images/sectionSecond/smStar.svg") no-repeat left
           center;
         vertical-align: middle;
         @media (min-width: $tablet) {
@@ -135,6 +135,8 @@
         }
         @media (min-width: $desktop) {
           padding-left: calc(17px + 17px);
+          background: url("../images/sectionSecond/star.svg") no-repeat left
+            center;
           background-size: 18px;
         }
       }
