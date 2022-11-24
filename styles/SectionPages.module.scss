@@ -21,6 +21,11 @@
     padding-top: 197.31px;
     padding-bottom: 102px;
   }
+  @media (min-width: $desktop) {
+    gap: 135.75px;
+    padding-top: 213px;
+    padding-bottom: 192px;
+  }
 
   .top {
     display: flex;
@@ -32,6 +37,10 @@
     @media (min-width: $tablet) {
       width: 82%;
       margin: 0 auto;
+    }
+    @media (min-width: $desktop) {
+      width: 79.4%;
+      gap: 34px;
     }
     &__description {
       display: none;

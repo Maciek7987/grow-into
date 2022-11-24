@@ -8,6 +8,9 @@
   @media (min-width: $tablet) {
     height: 111.83px;
   }
+  @media (min-width: $desktop) {
+    height: 130px;
+  }
   .wrapper {
     display: flex;
     height: 66.5%;
@@ -15,13 +18,17 @@
     align-items: center;
     gap: 76.04px;
     @media (min-width: $tablet) {
-      width: 82%;
+      width: 86%;
       max-width: 1180px;
       height: 100%;
       flex-direction: row-reverse;
       justify-content: space-between;
       align-items: flex-end;
       gap: 0;
+    }
+    @media (min-width: $desktop) {
+      max-width: 1524px;
+      height: 130px;
     }
   }
   &__img {
@@ -33,6 +40,11 @@
       height: 44px;
       margin-bottom: 27.91px;
       transform: translateX(0);
+    }
+    @media (min-width: $desktop) {
+      width: 150px;
+      height: 58.41px;
+      margin-bottom: 30.4px;
     }
   }
 }
@@ -52,6 +64,12 @@
     position: relative;
     padding: 0 20px;
     list-style: none;
+    &:first-child {
+      padding-left: 0;
+    }
+    @media (min-width: $desktop) {
+      padding: 0 44.65px;
+    }
     &::after {
       content: "";
       position: absolute;
@@ -61,6 +79,9 @@
       height: 12.5px;
       transform: translateY(-50%);
       background-color: #fff;
+      @media (min-width: $desktop) {
+        height: 18px;
+      }
     }
     &:last-child::after {
       display: none;
@@ -73,6 +94,9 @@
       font-weight: 400;
       text-decoration: none;
       color: $white-color;
+      @media (min-width: $desktop) {
+        font-size: 15.4px;
+      }
       .line {
         @include line($white-color);
         top: -5px;

@@ -20,20 +20,20 @@
       content: "";
       display: block;
       position: absolute;
-      top: 0;
-      bottom: 720px;
       left: 0;
       right: 0;
+      top: 0;
+      bottom: 720px;
       background: #fff;
     }
     &::after {
       content: "";
       display: block;
       position: absolute;
-      top: 70px;
-      bottom: 348px;
       left: 0;
       right: 0;
+      top: 70px;
+      bottom: 348px;
       background: linear-gradient(
         180deg,
         #ffffff 3.4%,
@@ -41,11 +41,28 @@
       );
     }
   }
+  @media (min-width: $desktop) {
+    height: 900px;
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 800px;
+      background: #fff;
+    }
+    &::after {
+      top: 92.33px;
+      bottom: 297.33px;
+    }
+  }
 }
 
 .hero {
-  position: relative;
   display: flex;
+  position: relative;
   flex-direction: column;
   align-items: center;
   gap: 30.93px;
@@ -56,12 +73,18 @@
     display: grid;
     grid-template-columns: 408px 1fr;
     width: 87%;
-    max-width: 1622.98px;
+    max-width: 1238px;
     align-items: start;
     grid-gap: 0;
     margin: 0 auto;
     padding-top: 200.02px;
-    padding-left: 36px;
+    padding-left: 37px;
+  }
+  @media (min-width: $desktop) {
+    grid-template-columns: 544px 1fr;
+    max-width: 1622.98px;
+    padding-top: 226.69px;
+    padding-left: 60px;
   }
   .left {
     display: grid;
@@ -75,11 +98,25 @@
       width: 100%;
       justify-items: start;
       text-align: left;
-      &__title {
-        font-size: 59.9999px;
-        line-height: 75px;
-        .italic {
-          font-size: 56.9999px;
+    }
+    @media (min-width: $desktop) {
+      grid-template-rows: 300px 128.57px 60px;
+    }
+    &__title {
+      @media (min-width: $tablet) {
+        font-size: 57.9999px;
+        line-height: 73px;
+      }
+      @media (min-width: $desktop) {
+        font-size: 70.9999px;
+        line-height: 88px;
+      }
+      .italic {
+        @media (min-width: $tablet) {
+          font-size: 54.9999px;
+          @media (min-width: $desktop) {
+            font-size: 67.9999px;
+          }
         }
       }
     }
@@ -88,23 +125,34 @@
       @media (min-width: $tablet) {
         padding: 26.98px 130px 40.94px 0;
       }
+      @media (min-width: $desktop) {
+        padding: 0 200px 47.6px 0;
+      }
     }
     &__btn {
       display: flex;
       width: 190px;
       height: 50px;
-      gap: 9.6px;
+      gap: 9px;
       justify-content: center;
       align-items: center;
+      padding-left: 3px;
       border: 1px solid #000;
       border-radius: 36px;
       font-family: $new-helvetica;
       font-size: 16px;
+      letter-spacing: -0.5px;
       background: #fff;
       cursor: pointer;
       transition: $transition;
       @media (min-width: $tablet) {
         width: 121px;
+      }
+      @media (min-width: $desktop) {
+        width: 145px;
+        height: 60px;
+        gap: 17px;
+        font-size: 18px;
       }
       .text {
         display: block;
@@ -119,6 +167,10 @@
         height: 13.1px;
         transform: scale(1.01);
         transition: $transition;
+        @media (min-width: $desktop) {
+          width: 9.1px;
+          height: 15.1px;
+        }
       }
       &:hover {
         background-color: #000;
@@ -142,16 +194,24 @@
     margin-right: 3.74px;
     @media (min-width: $tablet) {
       width: 100%;
-      max-width: 1080px;
+      max-width: 793px;
+      height: auto;
+    }
+    @media (min-width: $desktop) {
+      width: 100%;
+      max-width: 100%;
       height: auto;
     }
     &__img {
       width: 100%;
       height: auto;
-      filter: contrast(1.05);
+      filter: contrast(1);
       transform: translate(-3.5%, 6%) scale(1.13);
       @media (min-width: $tablet) {
-        transform: translate(-5%, 14.5%) scale(1.2);
+        transform: translate(-3.9%, 15.8%) scale(1.222);
+      }
+      @media (min-width: $desktop) {
+        transform: translate(-2.4%, 5.2%) scale(1.186);
       }
     }
   }

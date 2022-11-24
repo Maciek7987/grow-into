@@ -12,11 +12,19 @@
     padding-top: 226px;
     padding-bottom: 180.8px;
   }
+  @media (min-width: $desktop) {
+    gap: 127.09px;
+    padding-top: 294px;
+    padding-bottom: 219.67px;
+  }
   .top {
     width: 306px;
     text-align: center;
     @media (min-width: $tablet) {
       width: 847.73px;
+    }
+    &__title::first-letter {
+      letter-spacing: -3px;
     }
   }
   .main {
@@ -24,7 +32,7 @@
     width: 334px;
     height: 475px;
     border: 1px solid #000000;
-    border-radius: 30px;
+    border-radius: 60px;
     text-align: center;
     background: linear-gradient(
       17.5deg,
@@ -35,6 +43,9 @@
       width: 72%;
       max-width: 1038px;
       height: auto;
+    }
+    @media (min-width: $desktop) {
+      max-width: 1341.64px;
     }
     &__logo {
       position: absolute;
@@ -47,6 +58,10 @@
       transform: translate(-50%, -50%);
       @media (min-width: $tablet) {
         width: 172px;
+        height: 66.17px;
+      }
+      @media (min-width: $desktop) {
+        width: 196.4px;
         height: 66.17px;
       }
       &::before {
@@ -64,6 +79,12 @@
           width: 117px;
           height: 22.57px;
         }
+        @media (min-width: $desktop) {
+          left: calc(50% - 145px / 2 + 2px);
+          top: 19.09px;
+          width: 145px;
+          height: 33.46px;
+        }
       }
     }
     &__subtitle {
@@ -72,18 +93,28 @@
       margin: 57.54px auto 37.29px;
       @media (min-width: $tablet) {
         display: inline-block;
-        width: 80.5%;
+        width: 72.5%;
         height: auto;
         margin: 83.54px auto 17.27px;
+      }
+      @media (min-width: $desktop) {
+        width: 874.85px;
+        height: 108.46px;
+        margin: 102.29px auto 11px;
       }
     }
     &__description {
       width: 222.45px;
       margin: 0 auto;
       @media (min-width: $tablet) {
+        display: inline-block;
         width: 472.45px;
         height: 92.31px;
         margin: 0 auto 47.69px;
+      }
+      @media (min-width: $desktop) {
+        width: 586.85px;
+        margin-bottom: 83.33px;
       }
     }
   }

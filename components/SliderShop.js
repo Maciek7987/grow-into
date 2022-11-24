@@ -16,6 +16,7 @@ export default function SliderShop() {
   return (
     <>
       <Swiper
+        speed={500}
         slidesPerView={1}
         spaceBetween={30}
         loop={true}

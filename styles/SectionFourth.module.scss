@@ -12,6 +12,11 @@
     padding-top: 169.59px;
     padding-bottom: 159.88px;
   }
+  @media (min-width: $desktop) {
+    gap: 21.13px;
+    padding-top: 212.34px;
+    padding-bottom: 212.35px;
+  }
   .top {
     display: flex;
     width: 317.23px;
@@ -23,10 +28,13 @@
       width: 590.39px;
       gap: 26.13px;
     }
+    @media (min-width: $desktop) {
+      width: 740px;
+      gap: 31.13px;
+    }
     &__description {
       width: 100%;
       height: 315.36px;
-      font-size: 17.5px;
       @media (min-width: $tablet) {
         height: 246.68px;
       }
@@ -45,6 +53,10 @@
     @media (min-width: $tablet) {
       width: 381px;
       height: 381px;
+    }
+    @media (min-width: $desktop) {
+      width: 554px;
+      height: 554px;
     }
     &__img {
       width: 100%;

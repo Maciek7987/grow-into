@@ -11,7 +11,7 @@ export default function SectionFirst() {
           </h1>
         </div>
         <div className={styles.main}>
-          <div className={styles.main__logo}/>
+          <div className={styles.main__logo} />
           <h2 className={styles.main__subtitle}>
             Finding a balance of <span className="italic">who you are</span> and
             what you want for your life brings better things into your life and

@@ -7,7 +7,9 @@ export default function SectionFourth() {
     <section className={styles.section}>
       <article className={styles.wrapper}>
         <div className={styles.top}>
-          <h1 className={styles.top__title}>About Us</h1>
+          <h1 className={styles.top__title}>
+            About <span className="bigLetter">Us</span>
+          </h1>
           <p className={styles.top__description}>
             <span className={styles.smallWidth}>
               The team behind the Grow Into journal are just like you – in

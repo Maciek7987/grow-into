@@ -9,8 +9,11 @@ export default function Header() {
         <div className={styles.left}>
           <h1 className={styles.left__title}>
             Are you ready to{" "}
-            <span className={`italic ${styles.italic}`}> Grow Into</span> your
-            self?
+            <span className={`italic ${styles.italic}`}>
+              <span className="bigLetter">Grow</span>{" "}
+              <span className="bigLetter">Into</span>{" "}
+            </span>{" "}
+            your self?
           </h1>
           <p className={styles.left__description}>
             Let the Grow Into journal lead you to your authentic self.

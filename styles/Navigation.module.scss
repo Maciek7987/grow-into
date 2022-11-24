@@ -9,8 +9,8 @@
   height: auto;
   justify-content: space-between;
   background-color: #fff;
-  z-index: 9999999;
   transition: $transition;
+  z-index: 9999999;
 }
 
 .logo {
@@ -23,6 +23,11 @@
     height: 48px;
     margin: 20px 0 12px 56px;
   }
+  @media (min-width: $desktop) {
+    width: 138px;
+    height: 58px;
+    margin: 26.46px 0 15.18px 105px;
+  }
   .wrap {
     position: absolute;
     left: 0;
@@ -33,6 +38,7 @@
     z-index: 420;
   }
   .gradient {
+    display: none;
     position: absolute;
     left: -69%;
     top: -110%;
@@ -40,15 +46,20 @@
     height: 130.07px;
     background: radial-gradient(
       circle,
-      rgba(255, 255, 255, 0.60) 0%,
+      rgba(255, 255, 255, 0.6) 0%,
       rgba(255, 255, 255, 0) 65%
     );
     transition: $gradient-transition;
     z-index: 419;
+    @media (min-width: $tablet) {
+      display: block;
+    }
   }
-
   .wrap:hover + .gradient {
     transform: translateX(240%);
+    @media (min-width: $desktop) {
+      transform: translateX(260%);
+    }
   }
   &__img {
     width: 100%;
@@ -59,18 +70,24 @@
 .wrap {
   display: flex;
 }
-
 .buttonsShop {
   display: none;
   height: 21.97px;
+  gap: 21.16px;
   margin: 32.75px 0 25.28px 0;
+  padding-right: 22.5px;
   border-right: 1px solid black;
   @media (min-width: $tablet) {
     display: flex;
   }
+  @media (min-width: $desktop) {
+    height: 25px;
+    gap: 28.3px;
+    margin: 44.75px 0 30.25px 0;
+    padding-right: 29.25px;
+  }
   &__item {
     display: inline-block;
-    padding-right: 22.5px;
     list-style: none;
     .link {
       display: block;
@@ -80,6 +97,9 @@
       line-height: 24px;
       text-decoration: none;
       color: black;
+      @media (min-width: $desktop) {
+        font-size: 17.5px;
+      }
       .line {
         @include line(black);
       }
@@ -97,19 +117,30 @@
   justify-content: space-between;
   align-items: center;
   margin: 16.78px 18px 10px 0;
+
   @media (min-width: $tablet) {
     height: 30px;
     margin: 28.47px 58px 21.53px 30.75px;
+  }
+  @media (min-width: $desktop) {
+    width: 110px;
+    margin: 41px 99px 29px 30.75px;
   }
   &__img {
     @include basketSmall;
     @media (min-width: $tablet) {
       @include basketDefault;
     }
+    @media (min-width: $desktop) {
+      @include basketLarge;
+    }
   }
   &__price {
-    padding-top: 8%;
+    padding-top: 6%;
     font-family: $caslon;
     font-size: 13.4px;
+    @media (min-width: $desktop) {
+      font-size: 15.4px;
+    }
   }
 }

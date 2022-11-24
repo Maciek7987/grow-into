@@ -6,7 +6,10 @@ export default function SectionShop() {
     <section className={styles.section}>
       <article className={styles.wrapper}>
         <div className={styles.top}>
-          <h1 className={styles.top__title}>Grow Into Journal</h1>
+          <h1 className={styles.top__title}>
+            Grow <span className="bigLetter">Into</span>{" "}
+            <span className="bigLetter">Journal</span>
+          </h1>
           <h2 className={styles.top__price}>45 USD</h2>
         </div>
         <div className={styles.slider}>

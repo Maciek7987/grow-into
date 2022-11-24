@@ -17,18 +17,31 @@ body {
   padding-left: 1%;
   border-radius: 100px;
   font-family: $caslon;
-  font-size: 35px;
+  font-size: 34.9999px;
   font-weight: 400;
   font-style: italic;
   text-align: center;
   cursor: pointer;
   transition: $transition;
   @media (min-width: $tablet) {
-    font-size: 48px;
+    font-size: 47.9999px;
+  }
+  @media (min-width: $desktop) {
+    font-size: 54.9999px;
   }
 }
 .italic {
   font-style: italic;
+}
+.bigLetter {
+  display: inline-block;
+  &::first-letter {
+    font-size: 1.13em;
+    letter-spacing: -0.1px;
+  }
+}
+.letterSpacing::first-letter {
+  letter-spacing: -6px;
 }
 
 h1,
@@ -42,9 +55,17 @@ h1 {
   font-size: 38px;
   line-height: 50px;
   letter-spacing: 0.1px;
+  &::first-letter {
+    font-size: 1.13em;
+    letter-spacing: -0.1px;
+  }
   @media (min-width: $tablet) {
-    font-size: 52px;
+    font-size: 51px;
     line-height: 70px;
+  }
+  @media (min-width: $desktop) {
+    font-size: 57.9999px;
+    line-height: 80px;
   }
 }
 h1 .italic {
@@ -52,51 +73,65 @@ h1 .italic {
   @media (min-width: $tablet) {
     font-size: 47.9999px;
   }
+  @media (min-width: $desktop) {
+    font-size: 54.9999px;
+  }
 }
 h2 {
   font-size: 25.9999px;
   line-height: 135%;
-  @media (min-width: $tablet) {
-    font-size: 27.9999px;
+  @media (min-width: $desktop) {
+    font-size: 29.9999px;
   }
 }
 h2 .italic {
   font-size: 22.9999px;
+  @media (min-width: $desktop) {
+    font-size: 26.9999px;
+  }
 }
 
 p,
 li,
 div {
   font-weight: 500;
-  font-size: 16.9999px;
+  font-size: 17.5px;
   line-height: 30px;
   letter-spacing: -0.3px;
+  @media (min-width: $desktop) {
+    font-size: 21.5px;
+    line-height: 34px;
+  }
 }
 img {
   filter: contrast(1.05);
 }
 
+//SWIPERS
 .swiper-button-prev,
 .swiper-button-next {
   display: none !important;
-  transition: $transition;
+  width: 25px !important;
+  height: 47px !important;
+  @media (min-width: $desktop) {
+    width: 30.86px !important;
+    height: 60px !important;
+  }
   &::after {
     display: none;
   }
   &::before {
     content: "";
-    height: 47px !important;
-    width: 25px !important;
+    width: 100% !important;
+    height: 100% !important;
     background-size: contain;
     background-repeat: no-repeat;
+    transition: $transition;
   }
-}
-.swiper-button-disabled:hover {
-  display: none;
 }
 
 .swiper-button-prev {
-  &:hover {
+  &:hover::before {
     transform: translateX(-20%);
   }
   &::before {
@@ -104,7 +139,7 @@ img {
   }
 }
 .swiper-button-next {
-  &:hover {
+  &:hover::before {
     transform: translateX(20%);
   }
   &::before {
@@ -113,36 +148,51 @@ img {
 }
 
 .swiperPages {
+  .swiper-wrapper {
+    @media (min-width: $tablet) {
+      transition: $slider-transition !important;
+    }
+  }
   .swiper-button-prev,
   .swiper-button-next {
+    top: 43% !important;
     @media (min-width: $tablet) {
       display: flex !important;
+    }
+    @media (min-width: $desktop) {
+      top: 45% !important;
     }
   }
   .swiper-button-prev {
     left: 2.5% !important;
-    top: 43% !important;
+    @media (min-width: $desktop) {
+      left: 4.8% !important;
+    }
   }
   .swiper-button-next {
     right: 2.5% !important;
-    top: 43% !important;
+    @media (min-width: $desktop) {
+      right: 4.8% !important;
+    }
   }
 }
 
 .swiperShop {
   .swiper-button-prev,
   .swiper-button-next {
+    top: 39.8% !important;
     @media (min-width: $large-tablet) {
       display: flex !important;
+    }
+    @media (min-width: $desktop) {
+      top: 40.2% !important;
     }
   }
   .swiper-button-prev {
     left: 5.5% !important;
-    top: 32% !important;
   }
   .swiper-button-next {
     right: 5.5% !important;
-    top: 32% !important;
   }
   .swiper-pagination {
     bottom: 0 !important;
@@ -152,6 +202,9 @@ img {
       grid-row: 2/-1;
       background-color: #fff;
       z-index: 420;
+    }
+    @media (min-width: $desktop) {
+      height: 128px;
     }
     &-bullet {
       width: 56px !important;
@@ -167,6 +220,10 @@ img {
       @media (min-width: $large-tablet) {
         width: 96.17px !important;
         margin: 0 9.72px 0 0 !important;
+      }
+      @media (min-width: $desktop) {
+        width: 128px !important;
+        margin: 0 13.42px 0 0 !important;
       }
       &:nth-child(1) {
         background-image: url("../images/sectionShop/miniature1.png");

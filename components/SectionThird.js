@@ -8,7 +8,12 @@ export default function SectionThird() {
       <article className={styles.wrapper}>
         <div className={styles.top}>
           <h1 className={styles.top__title}>
-            How does <span className={styles.italic}>Grow Into</span> Work?
+            How does{" "}
+            <span className={styles.italic}>
+              <span className="bigLetter">Grow</span>{" "}
+              <span className="bigLetter"> Into</span>{" "}
+            </span>
+            <span className="bigLetter letterSpacing">Work?</span>
           </h1>
           <p className={styles.top__description}>
             The Grow Into journal itself is not magic - It just has a little

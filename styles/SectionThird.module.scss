@@ -6,8 +6,10 @@
 .wrapper {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 228.81px 1046.61px 518.06px 184.11px;
+  grid-template-rows: 228.81px 1046.61px 565px 184.11px;
+  max-width: 1920px;
   justify-items: center;
+  margin: 0 auto;
   padding-top: 85.61px;
   padding-bottom: 90px;
   @media (min-width: $tablet) {
@@ -15,6 +17,11 @@
     grid-template-rows: 211.81px 1189.76px 79px;
     padding-top: 175.8px;
     padding-bottom: 180px;
+    @media (min-width: $desktop) {
+      grid-template-rows: calc(318.91px - 56.37px) 1361.44px 92px;
+      padding-top: 213px;
+      padding-bottom: 220px;
+    }
   }
   .top {
     display: flex;
@@ -23,15 +30,30 @@
     gap: 13.81px;
     align-items: center;
     @media (min-width: $tablet) {
-      width: 677px;
+      width: 695px;
       grid-column: 1/-1;
       justify-self: flex-start;
       gap: 26.81px;
       align-items: flex-start;
       margin-left: 130px;
-      .italic {
+    }
+    @media (min-width: $desktop) {
+      width: 790px;
+      gap: 33.81px;
+      margin-left: 200px;
+    }
+    
+    &__title > .bigLetter::first-letter {
+      letter-spacing: -0.3px;
+    }
+    .italic {
+      //italic font only for devices largest than 860px
+      @media (min-width: $tablet) {
         font-size: 47.9999px;
         font-style: italic;
+      }
+      @media (min-width: $desktop) {
+        font-size: 54.9999px;
       }
     }
     &__description {
@@ -39,16 +61,22 @@
       @media (min-width: $tablet) {
         width: 600px;
       }
+      @media (min-width: $desktop) {
+        width: 669px;
+      }
     }
   }
   .left {
     width: 310px;
     @media (min-width: $tablet) {
-      grid-column: 1/2;
-      justify-self: start;
       width: 40vw;
       max-width: 474.4px;
+      grid-column: 1/2;
+      justify-self: start;
       margin-left: 130px;
+    }
+    @media (min-width: $desktop) {
+      margin-left: 200px;
     }
     &__list {
       display: grid;
@@ -60,31 +88,50 @@
       padding: 27.87px 0 42.93px 0;
       list-style: none;
       border-bottom: 1px solid $grey-color;
+      @media (min-width: $desktop) {
+        padding: 56.37px 0 46.74px 0;
+      }
       &:first-child {
-        padding-top: 0;
-        @media (min-width: $tablet) {
-          .item__description {
+        @media (max-width: $tablet) {
+          padding-top: 0;
+        }
+        .item__description {
+          @media (min-width: $tablet) {
             width: 70%;
+          }
+          @media (min-width: $desktop) {
+            width: 89%;
           }
         }
       }
       &:last-child {
         border: none;
-        @media (min-width: $tablet) {
-          .item__description {
+        .item__description {
+          @media (min-width: $tablet) {
             width: 70%;
+          }
+          @media (min-width: $desktop) {
+            width: 89%;
           }
         }
       }
       &__subtitle {
         height: 70px;
         line-height: 70px;
+        @media (min-width: $desktop) {
+          height: 40px;
+          margin-bottom: 22.13px;
+          line-height: 40px;
+        }
       }
       &__description {
         font-weight: 300;
         @media (min-width: $tablet) {
-          width: 70.9%;
+          width: 73%;
           min-width: 310px;
+        }
+        @media (min-width: $desktop) {
+          width: 94%;
         }
       }
     }
@@ -109,6 +156,13 @@
       width: 100%;
       height: auto;
       filter: contrast(1);
+      transform: translate(1%, 9%) scale(1.07);
+      @media (min-width: $tablet) {
+        transform: translate(0, 0) scale(1);
+      }
+      @media (min-width: $desktop) {
+        transform: translate(6.2%, -3.4%) scale(1.07);
+      }
     }
   }
   .bottom {
@@ -124,6 +178,9 @@
       flex-direction: row;
       justify-content: center;
       align-items: center;
+    }
+    @media (min-width: $desktop) {
+      gap: 42.58px;
     }
     &__title {
       width: 256.67px;
@@ -142,6 +199,10 @@
       @media (min-width: $tablet) {
         width: 311px;
         height: 79px;
+      }
+      @media (min-width: $desktop) {
+        width: 350px;
+        height: 92px;
       }
       &:hover {
         border: 1px solid #000;

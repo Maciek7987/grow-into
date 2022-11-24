@@ -8,7 +8,10 @@ export default function SectionSecond() {
       <article className={styles.wrapper}>
         <div className={styles.top}>
           <h1 className={styles.top__title}>
-            Start any day. <span className="italic">Write anytime.</span>
+            Start any day.{" "}
+            <span className="italic">
+              <span className="bigLetter">Write anytime.</span>
+            </span>
           </h1>
           <p className={styles.top__description}>
             This 90-day journal is set up to last{" "}
