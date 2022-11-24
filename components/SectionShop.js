@@ -3,7 +3,7 @@ import styles from "../styles/SectionShop.module.scss";
 
 export default function SectionShop() {
   return (
-    <section className={styles.section}>
+    <section id="sectionShop" className={styles.section}>
       <article className={styles.wrapper}>
         <div className={styles.top}>
           <h1 className={styles.top__title}>

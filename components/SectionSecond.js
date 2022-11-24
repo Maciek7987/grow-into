@@ -3,6 +3,11 @@ import styles from "../styles/SectionSecond.module.scss";
 import book from "../images/sectionSecond/Book.png";
 
 export default function SectionSecond() {
+  const scroll = () => {
+    document
+      .querySelector("#howItWorks")
+      .scrollIntoView({ behavior: "smooth", block: "center" });
+  };
   return (
     <section className={styles.section}>
       <article className={styles.wrapper}>
@@ -46,7 +51,7 @@ export default function SectionSecond() {
             It works in whatever way you need -{" "}
             <span className={styles.opacity}>---</span>
           </h1>
-          <button className={`${styles.bottom__btn} button`}>
+          <button onClick={scroll} className={`${styles.bottom__btn} button`}>
             find out how
           </button>
         </div>

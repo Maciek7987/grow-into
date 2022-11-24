@@ -3,6 +3,11 @@ import styles from "../styles/SectionThird.module.scss";
 import book from "../images/sectionThird/Bez nazwy.png";
 
 export default function SectionThird() {
+  const scroll = () => {
+    document
+      .querySelector("#sectionShop")
+      .scrollIntoView({ behavior: "smooth", block: "end" });
+  };
   return (
     <section className={styles.section}>
       <article className={styles.wrapper}>
@@ -70,7 +75,7 @@ export default function SectionThird() {
         </div>
         <div className={styles.bottom}>
           <h1 className={styles.bottom__title}>I want to</h1>
-          <button className={`${styles.bottom__btn} button`}>
+          <button onClick={scroll} className={`${styles.bottom__btn} button`}>
             get started
           </button>
         </div>
