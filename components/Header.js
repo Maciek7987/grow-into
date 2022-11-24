@@ -18,16 +18,16 @@ export default function Header() {
           <p className={styles.left__description}>
             Let the Grow Into journal lead you to your authentic self.
           </p>
-          <button className={styles.left__btn}>
-            <span className={styles.text}>Buy now</span>
+          <button className={`${styles.left__btn} btn`}>
+            <span className={`${styles.text} text`}>Buy now</span>
             <svg
-              className={styles.arrow}
+              className={`${styles.arrow} arrow`}
               viewBox="0 0 8 13"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                className={styles.arrow__path}
+                className={`${styles.arrow__path} arrow__path`}
                 d="M0.999999 11.8755L7 6.37549L1 0.875488"
                 stroke="black"
                 strokeLinecap="square"
