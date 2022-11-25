@@ -20,9 +20,6 @@ $new-helvetica: "Inter", sans-serif;
 $helvetica: "TeX Gyre", sans-serif;
 $caslon: "Caslon", sans-serif;
 
-
-
-
 //STYLES
 $beige-color: #d19d7c;
 $dark-beige-color: #d9d9d9;
@@ -31,6 +28,7 @@ $ligth-white-color: #ebebeb;
 $black-color: #0f0e0e;
 $grey-color: #585252;
 $light-grey-color: #898989;
+$cart-grey-color: #dddddd;
 $transition: 0.3s ease-in-out;
 $slider-transition: 0.6s ease-in-out;
 $link-transition: 0.8s ease-out;
@@ -94,7 +92,7 @@ $desktop: 1920px;
   height: 22px;
   &::before {
     background-image: url("../images/navigation/ellipseSmall.svg");
-    top: -0.6px;
+    top: 0;
     width: 12px;
     height: 7px;
   }
