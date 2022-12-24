@@ -1,12 +1,12 @@
 import Image from "next/image";
 import styles from "../styles/SectionThird.module.scss";
-import book from "../images/sectionThird/Bez nazwy.png";
+import book from "../images/sectionThird/Book.png";
 
 export default function SectionThird() {
   const scroll = () => {
     document
-      .querySelector("#sectionShop")
-      .scrollIntoView({ behavior: "smooth", block: "end" });
+      .querySelector("#scrollToShop")
+      .scrollIntoView({ behavior: "smooth", block: "start" });
   };
   return (
     <section className={styles.section}>

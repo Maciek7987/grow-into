@@ -9,9 +9,15 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "cookies-next": "^2.1.1",
+    "country-state-city": "^3.1.2",
     "next": "13.0.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-hook-form": "^7.40.0",
+    "react-select": "^5.7.0",
+    "react-use-cart": "^1.13.0",
+    "reactjs-popup": "^2.0.5",
     "swiper": "^8.4.4"
   },
   "devDependencies": {

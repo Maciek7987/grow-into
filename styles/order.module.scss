@@ -1,0 +1,39 @@
+@import "variables";
+
+.wrapper {
+  display: flex;
+  position: relative;
+  width: 322px;
+  flex-direction: column;
+  margin: 55px auto 0;
+  padding-top: 44px;
+  padding-bottom: 90px;
+  @media (min-width: $large-tablet) {
+    width: 576.19px;
+    margin: 80px 0 0 129px;
+    padding-top: 84px;
+    padding-bottom: 181.13px;
+  }
+  @media (min-width: $desktop) {
+    width: 741px;
+    margin: 100px 0 0 199px;
+    padding-top: 122px;
+    padding-bottom: 220px;
+  }
+  .top {
+    height: 69.5px;
+    padding-bottom: 34.5px;
+    text-align: left;
+    @media (min-width: $large-tablet) {
+      height: 60.5px;
+      padding-bottom: 25.5px;
+    }
+    @media (min-width: $desktop) {
+      height: 70px;
+      padding-bottom: 30px;
+      &__title {
+        line-height: 35px;
+      }
+    }
+  }
+}

@@ -5,7 +5,7 @@ import book from "../images/sectionSecond/Book.png";
 export default function SectionSecond() {
   const scroll = () => {
     document
-      .querySelector("#howItWorks")
+      .querySelector("#scrollToItWorks")
       .scrollIntoView({ behavior: "smooth", block: "center" });
   };
   return (

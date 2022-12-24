@@ -1,8 +1,17 @@
+import { useEffect, useState } from "react";
+import { useCart } from "react-use-cart";
 import Image from "next/image";
+import Link from "next/link";
 import styles from "../styles/Header.module.scss";
 import book from "../images/header/book1.png";
 
-export default function Header() {
+export default function Header({ product }) {
+  let { addItem } = useCart();
+  const [item, setItem] = useState({});
+  useEffect(() => {
+    setItem(JSON.parse(window.localStorage.getItem("react-use-cart")).items[0]);
+  }, []);
+
   return (
     <header className={styles.header}>
       <section className={styles.hero}>
@@ -18,7 +27,11 @@ export default function Header() {
           <p className={styles.left__description}>
             Let the Grow Into journal lead you to your authentic self.
           </p>
-          <button className={`${styles.left__btn} btn`}>
+          <Link
+            href="/cart"
+            onClick={() => (!item ? addItem(product, 1) : null)}
+            className={`${styles.left__btn} btn`}
+          >
             <span className={`${styles.text} text`}>Buy now</span>
             <svg
               className={`${styles.arrow} arrow`}
@@ -34,7 +47,7 @@ export default function Header() {
                 strokeLinejoin="round"
               />
             </svg>
-          </button>
+          </Link>
         </div>
         <div className={styles.book}>
           <Image

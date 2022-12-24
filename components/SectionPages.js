@@ -3,7 +3,7 @@ import styles from "../styles/sectionPages.module.scss";
 
 export default function SectionPages() {
   return (
-    <section id="howItWorks" className={styles.section}>
+    <section id="scrollToItWorks" className={styles.section}>
       <article className={styles.wrapper}>
         <div className={styles.top}>
           <h1 className={styles.top__title}>How it works</h1>

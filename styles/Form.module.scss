@@ -1,0 +1,607 @@
+@import "./variables";
+
+.form {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: minmax(723.4px, 1fr) 274.75px 194.25px 50px; //shipping adress, order summary, pay, button
+  width: 100%;
+  @media (min-width: $large-tablet) {
+    grid-template-rows: minmax(447px, 1fr) 253.38px 183.41px 50px;
+  }
+  @media (min-width: $desktop) {
+    grid-template-rows: minmax(509px, 1fr) 287.5px 181.63px 60px;
+  }
+  input[aria-invalid="true"] {
+    border-color: $error-color;
+    & ~ .invalid {
+      display: block;
+    }
+  }
+  input[aria-invalid="false"] ~ .invalid {
+    display: none;
+  }
+  .invalid {
+    grid-column: 1/-1;
+    margin: 0.5714285714em 0 0.2857142857em;
+    font-size: 13.5px;
+    line-height: 1.3em;
+    color: $error-color;
+  }
+  &__btn {
+    width: 189.36px;
+    height: 50px;
+    grid-row: 4/-1;
+    justify-self: center;
+    border: 1px solid #000000;
+    border-radius: 36px;
+    font-family: $new-helvetica;
+    font-size: 16px;
+    font-weight: 200;
+    background: #000;
+    color: #fff;
+    cursor: pointer;
+    transition: $transition;
+    @media (min-width: $large-tablet) {
+      width: 108.5px;
+      justify-self: right;
+    }
+    @media (min-width: $desktop) {
+      width: 130.2px;
+      height: 60px;
+      font-size: 18px;
+    }
+    &:hover {
+      font-weight: 500;
+      background-color: #fff;
+      color: #000;
+    }
+  }
+}
+.shippingAdress {
+  display: grid;
+  grid-template-rows: 33.52px repeat(10, minmax(50px, auto)); //<p>Shipping adress</p> has height: 30px and gap between first field 22.4px
+  //(30 + 22.4 = 33.52 + 18.88)
+  grid-row: 1/2;
+  justify-items: center;
+  row-gap: 18.88px;
+  @media (min-width: $large-tablet) {
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 33px repeat(6, minmax(50px, auto));
+    column-gap: 19px;
+  }
+  @media (min-width: $desktop) {
+    grid-template-rows: 34.5px repeat(6, minmax(60px, auto));
+    column-gap: 20px;
+    row-gap: 19px;
+  }
+  &__title {
+    height: 30px;
+    grid-column: 1/-1;
+    grid-row: 1/2;
+    justify-self: left;
+  }
+  &__wrap {
+    position: relative;
+    width: 100%;
+    max-width: 320px;
+    @media (min-width: $large-tablet) {
+      max-width: 575px;
+      &:nth-child(2) {
+        grid-column: 1/-1;
+        grid-row: 2/3;
+      }
+      &:nth-child(3) {
+        grid-column: 1/4;
+        grid-row: 3/4;
+      }
+      &:nth-child(4) {
+        grid-column: 4/7;
+        grid-row: 3/4;
+      }
+      &:nth-child(5) {
+        grid-column: 1/4;
+        grid-row: 4/5;
+      }
+      &:nth-child(6) {
+        grid-column: 4/7;
+        grid-row: 4/5;
+      }
+      &:nth-child(7) {
+        grid-column: 1/3;
+        grid-row: 5/6;
+      }
+      &:nth-child(8) {
+        grid-column: 3/5;
+        grid-row: 5/6;
+        @media (min-width: $desktop) {
+          width: 240px;
+        }
+      }
+      &:nth-child(9) {
+        grid-column: 5/7;
+        grid-row: 5/6;
+      }
+      &:nth-child(10) {
+        grid-column: 1/-1;
+        grid-row: 6/7;
+      }
+      &:nth-child(11) {
+        grid-column: 1/-1;
+        grid-row: 7/8;
+      }
+    }
+    @media (min-width: $desktop) {
+      max-width: 740px;
+    }
+  }
+  &__input {
+    width: 100%;
+    height: 50px;
+    padding: 11px 0 9px 18.32px;
+    border-radius: 4px;
+    border: 1px solid $cart-grey-color;
+    font-family: "Inter", sans-serif;
+    font-size: 13.5px;
+    font-weight: 500;
+    background: transparent;
+    color: #000;
+    transition: $transition;
+    @media (min-width: $desktop) {
+      height: 60px;
+      font-size: 15.5px;
+    }
+    //when user use default popup to choose
+    &:-webkit-autofill,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:hover {
+      -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+    }
+    &:-webkit-autofill:focus + .labelPlaceholder {
+      font-weight: 500 !important;
+      color: #000 !important;
+    }
+
+    //when input field is focus
+    &:focus {
+      outline: none;
+      border: 1px solid #000;
+
+      //when input field is focus but isn't empty, placeholder is black
+      & + .labelPlaceholder {
+        font-weight: 500;
+        color: #000;
+      }
+      //when input field is focus but is empty, placeholder is grey
+      &:placeholder-shown + .labelPlaceholder {
+        font-weight: 400;
+        color: $input-text-color;
+      }
+    }
+
+    //when input field isn't empty
+    &:-webkit-autofill + .labelPlaceholder,
+    &:-webkit-autofill:focus + .labelPlaceholder,
+    &:-webkit-autofill:hover + .labelPlaceholder,
+    &:-webkit-autofill ~ .whiteLineForAnimation,
+    &:-webkit-autofill:focus ~ .whiteLineForAnimation,
+    &:-webkit-autofill:hover ~ .whiteLineForAnimation,
+    & + .labelPlaceholder,
+    & ~ .whiteLineForAnimation {
+      position: absolute;
+      left: 18.7px;
+      top: 0;
+      width: auto;
+      height: auto;
+      font-size: 11.5px;
+      line-height: 100%;
+      font-weight: 400;
+      user-select: none;
+      pointer-events: none;
+      background-color: transparent;
+      color: $input-text-color;
+      z-index: 2;
+      transform: translateY(-50%);
+      transition: $placeholder-transition, z-index 0s $give-zindex-wait;
+      .optional {
+        position: absolute;
+        opacity: 0;
+      }
+    }
+    &:-webkit-autofill ~ .whiteLineForAnimation,
+    &:-webkit-autofill:focus ~ .whiteLineForAnimation,
+    &:-webkit-autofill:hover ~ .whiteLineForAnimation,
+    & ~ .whiteLineForAnimation {
+      left: calc(18.7px - 3.48px);
+      height: auto;
+      padding: 0 4.48px;
+      background-color: #fff;
+      color: transparent;
+      z-index: 1;
+      transform: translateY(-50%) scaleX(1);
+      transition: $sliding-input-border-transition;
+    }
+
+    //when input field is empty
+    &:placeholder-shown {
+      & + .labelPlaceholder {
+        left: 18.32px;
+        font-size: 13.5px;
+        z-index: -1;
+        transform: translateY(150%);
+        transition: $placeholder-transition, z-index 0s $remove-zindex-wait;
+        @media (min-width: $desktop) {
+          font-size: 15.5px;
+        }
+        .optional {
+          left: 47px;
+          opacity: 1;
+          transition: opacity $placeholder-transition;
+        }
+      }
+      & ~ .whiteLineForAnimation {
+        transform: translateY(-50%) scaleX(0);
+        transition: $back-input-border-transition;
+      }
+    }
+  }
+
+  //select
+  [class$="-container"] {
+    transition: $transition;
+    [class$="-menu"] {
+      box-shadow: 0 4px 5px #ddd;
+      border-radius: 0 0 4px 4px;
+      border: 1px solid #ddd;
+      border-top: none;
+      background-color: #fff;
+      z-index: 3;
+      transition: $transition;
+    }
+    [class$="-MenuList"],
+    [class$="-NoOptionsMessage"] {
+      font-family: "Inter", sans-serif;
+      font-size: 13.5px;
+      font-weight: 500;
+      line-height: normal;
+      @media (min-width: $desktop) {
+        font-size: 15.5px;
+      }
+    }
+    [class$="-NoOptionsMessage"] {
+      line-height: 30px;
+      color: $disabled-color;
+    }
+    [class$="-option"] {
+      padding-left: calc(18.7px - 3.48px);
+    }
+    & + .labelPlaceholder,
+    & ~ .whiteLineForAnimation {
+      position: absolute;
+      left: 18.32px;
+      top: 0;
+      width: auto;
+      height: auto;
+      padding: 0 1px;
+      line-height: normal;
+      user-select: none;
+      pointer-events: none;
+      background-color: transparent;
+      z-index: 2;
+    }
+    & ~ .whiteLineForAnimation {
+      left: calc(18.7px - 3.48px);
+      padding: 0 4.48px;
+      font-size: 11.5px;
+      background-color: #fff;
+      z-index: 1;
+      color: transparent;
+    }
+  }
+  [class$="-control"] {
+    width: 100%;
+    height: 50px;
+    padding: 11px 34px 9px 18.32px;
+    border-radius: 4px;
+    border-width: 1px;
+    border-style: solid;
+    background: transparent;
+    caret-color: transparent;
+    transition: $transition;
+    @media (min-width: $desktop) {
+      height: 60px;
+    }
+    [class$="-singleValue"],
+    [class$="-Input"] {
+      font-family: "Inter", sans-serif;
+      font-size: 13.5px;
+      font-weight: 500;
+      line-height: normal;
+      @media (min-width: $desktop) {
+        font-size: 15.5px;
+      }
+    }
+    .arrow {
+      content: "";
+      position: absolute;
+      right: 20px;
+      bottom: 17.5px;
+      width: 13.2px;
+      height: 7px;
+      background-image: url("../images/order/arrow.svg");
+      background-size: cover;
+      z-index: -1;
+      transition: $transition;
+      @media (min-width: $desktop) {
+        bottom: 22.5px;
+      }
+    }
+  }
+}
+
+.summary {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 53px 81px 91.88px;
+  width: 316.9px;
+  align-self: flex-end;
+  @media (min-width: $large-tablet) {
+    grid-template-rows: 53px 81px 81px;
+    width: 575px;
+    padding: 40.37px 0 0 0;
+  }
+  @media (min-width: $desktop) {
+    grid-template-rows: 60px 97px 90px;
+    width: 739px;
+    padding: 40.87px 0 0 0;
+  }
+  &__title {
+    padding-bottom: 23px;
+    @media (min-width: $desktop) {
+      padding-bottom: 26px;
+      line-height: 34px;
+    }
+  }
+  .wrap {
+    padding: 9px 0 10px;
+    border-top: 1px solid $cart-grey-color;
+    border-bottom: 1px solid $cart-grey-color;
+    @media (min-width: $desktop) {
+      padding: 14px 0 15px;
+    }
+    .name,
+    .subtotal,
+    .shipping {
+      font-size: 13.5px;
+      @media (min-width: $desktop) {
+        font-size: 15.5px;
+      }
+    }
+  }
+  &__subtotal,
+  &__shipping,
+  &__total {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__total {
+    //wrapper of total (total=.name     90,00USD=.total)
+    padding: 14px 0 37.87px;
+    @media (min-width: $large-tablet) {
+      padding-bottom: 27px;
+    }
+    @media (min-width: $desktop) {
+      padding: 22px 0 31px;
+    }
+    .name {
+      height: 40px;
+      line-height: 40px;
+      @media (min-width: $desktop) {
+        height: 34px;
+        margin-top: 3px;
+        line-height: 34px;
+      }
+    }
+    .total {
+      width: 210.9px;
+      margin-top: 1px;
+      text-align: right;
+      font-size: 26.9999px;
+      color: $beige-color;
+      @media (min-width: $desktop) {
+        margin-top: 0;
+        font-size: 31.9999px;
+        line-height: 35px;
+      }
+    }
+  }
+}
+
+.pay {
+  display: grid;
+  grid-row: 3/4;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 51.12px 62.29px 30px;
+  width: 246px;
+  height: 143.41px;
+  column-gap: 40.81px;
+  @media (min-width: $desktop) {
+    grid-template-rows: 51.12px 65.29px 30px;
+    width: 278.19px;
+    height: 146.41px;
+    column-gap: 34.7px;
+  }
+  &__title {
+    grid-column: 1/-1;
+  }
+}
+.form__payInput {
+  display: none;
+  pointer-events: none;
+  & + label {
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: 19px auto;
+    margin-bottom: 30px;
+    padding-left: 1px;
+    gap: 19px;
+    @media (min-width: $desktop) {
+      grid-template-columns: 21px auto;
+      gap: 17px;
+    }
+    .svg {
+      width: 19px;
+      height: 19px;
+      @media (min-width: $desktop) {
+        width: 21px;
+        height: 21px;
+      }
+      &__border {
+        stroke: #ddd;
+        transition: stroke $checkbox-border-transition;
+        &:hover {
+          stroke: #000;
+        }
+      }
+      &__dot {
+        transform-origin: center;
+        animation: shrink-dot $checkbox-dot-transition forwards;
+      }
+    }
+    .logo {
+      &::before {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+      }
+    }
+    .logoPayPal {
+      width: 69px;
+      height: 19px;
+      @media (min-width: $desktop) {
+        width: 84px;
+        height: 23px;
+      }
+
+      &::before {
+        margin-top: 2px;
+        background-image: url("../images/order/paypal.svg");
+      }
+    }
+    .logoApplePay {
+      width: 52px;
+      height: 24px;
+      @media (min-width: $desktop) {
+        width: 61px;
+        height: 28px;
+      }
+      &::before {
+        margin-top: -2px;
+        background-image: url("../images/order/applepay.svg");
+        @media (min-width: $desktop) {
+          margin-top: -4px;
+        }
+      }
+    }
+  }
+
+  &:checked + label {
+    .svg {
+      &__border {
+        stroke: #000;
+      }
+      &__dot {
+        stroke: #000;
+        fill: #000;
+        animation: grow-dot $checkbox-dot-transition forwards;
+      }
+    }
+  }
+}
+
+@keyframes grow-dot {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+@keyframes shrink-dot {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0);
+    stroke: #fff;
+    fill: #fff;
+  }
+}
+
+.form__termsInput {
+  display: none;
+  pointer-events: none;
+  & + .wrap {
+    display: flex;
+    grid-column: 1/-1;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 13.5px;
+    @media (min-width: $desktop) {
+      font-size: 15.5px;
+    }
+  }
+
+  & + .wrap label {
+    cursor: pointer;
+    display: grid;
+    align-items: center;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: 30px;
+    grid-gap: 14.19px;
+    @media (min-width: $desktop) {
+      grid-gap: 12.19px;
+    }
+    .svg {
+      width: 18px;
+      height: auto;
+      @media (min-width: $desktop) {
+        width: 19px;
+      }
+      &__border {
+        stroke: $order-grey-color;
+        transition: stroke $checkbox-border-transition;
+        &:hover {
+          stroke: #000;
+        }
+      }
+      &__tick {
+        stroke-dasharray: 24;
+        stroke-dashoffset: 24;
+        transition: stroke-dashoffset $checkbox-dot-transition;
+      }
+    }
+  }
+  &:checked + .wrap label {
+    .svg {
+      &__border {
+        stroke: #000;
+      }
+      &__tick {
+        stroke-dashoffset: 0;
+      }
+    }
+  }
+  & + .wrap .boldFont {
+    display: flex;
+    height: 30px;
+    font-weight: 600;
+    line-height: 30px;
+    cursor: pointer;
+  }
+
+  &[aria-invalid="true"] + .wrap label .svg__border {
+    stroke: $error-color;
+  }
+}

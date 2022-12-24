@@ -1,5 +1,10 @@
 @import "variables";
 
+.hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
 .navigation {
   display: flex;
   position: fixed;
@@ -10,7 +15,7 @@
   justify-content: space-between;
   background-color: #fff;
   transition: $transition;
-  z-index: 9999999;
+  z-index: 200;
 }
 
 .logo {
@@ -76,7 +81,7 @@
   gap: 21.16px;
   margin: 32.75px 0 25.28px 0;
   padding-right: 22.5px;
-  border-right: 1px solid black;
+  border-right: 1px solid #000;
   @media (min-width: $tablet) {
     display: flex;
   }
@@ -96,12 +101,12 @@
       font-weight: 600;
       line-height: 24px;
       text-decoration: none;
-      color: black;
+      color: #000;
       @media (min-width: $desktop) {
         font-size: 17.5px;
       }
       .line {
-        @include line(black);
+        @include line(#000);
       }
       &:hover .line {
         transform: translateX(0);
@@ -112,35 +117,37 @@
 
 .basket {
   display: flex;
-  width: 104px;
+  width: 118px;
   height: 28.22px;
   justify-content: space-between;
   align-items: center;
-  margin: 16.78px 18px 10px 0;
-
+  margin: 16.78px 0 10px 0;
   @media (min-width: $tablet) {
+    width: 135px;
     height: 30px;
-    margin: 28.47px 58px 21.53px 30.75px;
+    margin: 28.47px 0 21.53px 30.75px;
   }
   @media (min-width: $desktop) {
-    width: 110px;
-    margin: 41px 99px 29px 30.75px;
+    width: 201px;
+    margin: 41px 0 29px 30.75px;
   }
   &__img {
-    @include basketSmall;
-    @media (min-width: $tablet) {
-      @include basketDefault;
-    }
-    @media (min-width: $desktop) {
-      @include basketLarge;
-    }
+    @include basket;
   }
+
   &__price {
-    padding-top: 6%;
+    align-self: flex-start;
+    padding-top: 8.07px;
     font-family: $caslon;
     font-size: 13.4px;
+    line-height: 17px;
+    @media (min-width: $tablet) {
+      padding-top: 8.58px;
+    }
     @media (min-width: $desktop) {
+      padding-top: 9.35px;
       font-size: 15.4px;
+      line-height: 16px;
     }
   }
 }

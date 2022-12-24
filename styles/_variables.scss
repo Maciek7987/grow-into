@@ -1,11 +1,6 @@
 //TYPOGRAPHY
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap");
 @font-face {
-  font-family: "TeX Gyre";
-  font-style: normal;
-  src: url("../fonts/texgyreheros-regular-webfont.woff") format("woff");
-}
-@font-face {
   font-family: "Caslon";
   font-style: normal;
   src: url("../fonts/librecaslontext-regular-webfont.woff") format("woff");
@@ -17,10 +12,10 @@
 }
 
 $new-helvetica: "Inter", sans-serif;
-$helvetica: "TeX Gyre", sans-serif;
 $caslon: "Caslon", sans-serif;
 
 //STYLES
+$error-color: #de2a2a;
 $beige-color: #d19d7c;
 $dark-beige-color: #d9d9d9;
 $white-color: #f9f5f0;
@@ -29,10 +24,26 @@ $black-color: #0f0e0e;
 $grey-color: #585252;
 $light-grey-color: #898989;
 $cart-grey-color: #dddddd;
+$input-text-color: #b3b3b3;
+$order-grey-color: #dfdfdf;
+$disabled-color: #dfdfdf;
 $transition: 0.3s ease-in-out;
 $slider-transition: 0.6s ease-in-out;
 $link-transition: 0.8s ease-out;
 $gradient-transition: 1s 0.1s linear;
+$checkbox-dot-transition: 200ms cubic-bezier(0.4, 0, 0.23, 1);
+$checkbox-border-transition: 200ms cubic-bezier(0.4, 0, 0.23, 1);
+$placeholder-transition: 200ms 3ms cubic-bezier(0.45, 0.05, 0.55, 0.95);
+$sliding-input-border-transition: 160ms 20ms cubic-bezier(0, 0.87, 0, 0.91);
+$back-input-border-transition: 70ms 100ms cubic-bezier(0, 0, 0.63, 0.84);
+
+$give-zindex-wait: calc(20ms + 60ms);
+$remove-zindex-wait: 150ms;
+@mixin disabled {
+  opacity: 0.7;
+  pointer-events: none;
+  @content;
+}
 
 //RESOLUTION
 $tablet: 860px;
@@ -44,12 +55,21 @@ $desktop: 1920px;
 @mixin basket {
   position: relative;
   top: 2px;
+  width: 20px;
+  height: 20.69px;
   border: 1px solid #000;
   border-radius: 2px 2px 4px 4px;
   background-color: #000;
   transform-style: preserve-3d;
   cursor: pointer;
   transition: background-color $transition;
+  @media (min-width: $tablet) {
+    height: 22px;
+  }
+  @media (min-width: $desktop) {
+    width: 22px;
+    height: 24px;
+  }
   &:hover {
     background-color: #fff;
   }
@@ -57,68 +77,33 @@ $desktop: 1920px;
     content: "";
     position: absolute;
     left: 50%;
-    transform: translateZ(-1px) translate(-50%, -100%);
-    background-repeat: no-repeat;
+    width: 12px;
+    height: 12px;
+    border-radius: 100%;
+    box-shadow: inset 0px 0px 0px 1px black;
+    background-color: #fff;
+    transform: translateZ(-1px) translate(-50%, -56%);
+    @media (min-width: $desktop) {
+      width: 14px;
+      height: 14px;
+      transform: translateZ(-1px) translate(-50%, -50%);
+    }
   }
   &Full::after {
     content: "";
     position: absolute;
+    right: -5.81px;
+    bottom: -3.7px;
+    width: 10px;
+    height: 10px;
     border: 1px solid #000;
     border-radius: 100%;
     background-color: $beige-color;
-  }
-}
-
-@mixin basketSmall {
-  @include basket;
-  width: 20px;
-  height: 20.69px;
-  &::before {
-    background-image: url("../images/navigation/ellipseSmall.svg");
-    top: 0.35px;
-    width: 12px;
-    height: 7px;
-  }
-  &Full::after {
-    right: -4.81px;
-    bottom: -2.7px;
-    width: 10px;
-    height: 10px;
-  }
-}
-@mixin basketDefault {
-  @include basket;
-  width: 20px;
-  height: 22px;
-  &::before {
-    background-image: url("../images/navigation/ellipseSmall.svg");
-    top: 0;
-    width: 12px;
-    height: 7px;
-  }
-  &Full::after {
-    right: -4.81px;
-    bottom: -2.7px;
-    width: 10px;
-    height: 10px;
-  }
-}
-
-@mixin basketLarge {
-  @include basket;
-  width: 22px;
-  height: 24px;
-  &::before {
-    background-image: url("../images/navigation/ellipseLarge.svg");
-    top: 1px;
-    width: 14px;
-    height: 8px;
-  }
-  &Full::after {
-    right: -4.81px;
-    bottom: -2.5px;
-    width: 12px;
-    height: 12px;
+    @media (min-width: $desktop) {
+      bottom: -3.5px;
+      width: 12px;
+      height: 12px;
+    }
   }
 }
 

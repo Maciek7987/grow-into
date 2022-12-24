@@ -1,9 +1,17 @@
+import { useEffect, useState } from "react";
+import { useCart } from "react-use-cart";
+import Link from "next/link";
 import Slider from "./SliderShop";
 import styles from "../styles/SectionShop.module.scss";
 
-export default function SectionShop() {
+export default function SectionShop({ product }) {
+  let { addItem } = useCart();
+  const [item, setItem] = useState({});
+  useEffect(() => {
+    setItem(JSON.parse(window.localStorage.getItem("react-use-cart")).items[0]);
+  }, []);
   return (
-    <section id="sectionShop" className={styles.section}>
+    <section className={styles.section}>
       <article className={styles.wrapper}>
         <div className={styles.top}>
           <h1 className={styles.top__title}>
@@ -12,7 +20,7 @@ export default function SectionShop() {
           </h1>
           <h2 className={styles.top__price}>45 USD</h2>
         </div>
-        <div className={styles.slider}>
+        <div id="scrollToShop" className={styles.slider}>
           <Slider />
         </div>
         <div className={styles.main}>
@@ -39,7 +47,13 @@ export default function SectionShop() {
           <p className={styles.bottom__description}>
             Dimension: 142x210 mm, 94 pages, ISBN 83248392034
           </p>
-          <button className={styles.bottom__btn}>Buy now</button>
+          <Link
+            href="/cart"
+            onClick={() => (!item ? addItem(product, 1) : null)}
+            className={styles.bottom__btn}
+          >
+            Buy now
+          </Link>
         </div>
       </article>
     </section>

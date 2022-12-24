@@ -1,51 +1,107 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
+import { useCart } from "react-use-cart";
+import { useMargin } from "../hooks/useMargin";
 import Image from "next/image";
+import Link from "next/link";
 import styles from "../styles/Navigation.module.scss";
 import logo from "../images/navigation/logo.svg";
-let oldScrollValue = 0;
 
-export default function Navigation() {
-  const nav = useRef(null);
-  const hiddenMenu = () => {
-    if (window.scrollY > oldScrollValue) {
-      nav.current.style.transform = "translateY(-100%)";
-      nav.current.style.opacity = "0";
+export default function Navigation({ product }) {
+  //redirect and scroll to section How it works
+  const router = useRouter();
+  const redirectAndScroll = (e) => {
+    e.preventDefault();
+    let href;
+    let behavior;
+    if (router.asPath === "/" || router.asPath === "/#") {
+      href = "#";
+      behavior = "smooth";
     } else {
-      nav.current.style.transform = "translateY(0)";
-      nav.current.style.opacity = "1";
+      href = "/";
+      behavior = "auto";
     }
-    oldScrollValue = window.scrollY;
+    router.push(href, undefined, { scroll: false }).then(() => {
+      document
+        .querySelector("#scrollToItWorks")
+        .scrollIntoView({ behavior, block: "center" });
+    });
   };
+
+  //cart
+  const [item, setItem] = useState({});
+  useEffect(() => {
+    setItem(JSON.parse(window.localStorage.getItem("react-use-cart")).items[0]);
+  }, []);
+
+  //scroll
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const [hidden, setHidden] = useState(false);
+  const hiddenMenu = () => {
+    if (window.scrollY > lastScrollY) setHidden(true);
+    else setHidden(false);
+    setLastScrollY(window.scrollY);
+  };
+
   useEffect(() => {
     window.addEventListener("scroll", hiddenMenu);
-  });
+    return () => window.removeEventListener("scroll", hiddenMenu);
+  }, [lastScrollY]);
 
-  let number = "00,00";
+  //margin
+  const marginValueObject = {
+    //margin for two-, three-, and four-digit numbers
+    mobile: ["20px", "15px", "10px"],
+    tablet: ["37px", "31px", "25px"],
+    desktop: ["88px", "81px", "74px"],
+  };
+  let margin = useMargin(item, marginValueObject);
+
   return (
-    <nav ref={nav} className={styles.navigation}>
+    <nav className={`${styles.navigation} ${hidden && styles.hidden}`}>
       <div className={styles.logo}>
-        <div className={styles.wrap}/>
-        <div className={styles.gradient}/>
-        <Image className={styles.logo__img} src={logo} alt="logo" />
+        <Link href="/">
+          <div className={styles.wrap} />
+          <div className={styles.gradient} />
+          <Image className={styles.logo__img} src={logo} alt="logo" />
+        </Link>
       </div>
       <div className={styles.wrap}>
         <ul className={styles.buttonsShop}>
           <li className={styles.buttonsShop__item}>
-            <a className={styles.link} href="#">
+            <Link
+              onClick={() => (!item ? addItem(product, 1) : null)}
+              className={styles.link}
+              href="/cart"
+            >
               buy now
               <div className={styles.line} />
-            </a>
+            </Link>
           </li>
           <li className={styles.buttonsShop__item}>
-            <a className={styles.link} href="#">
+            <Link
+              onClick={(e) => {
+                redirectAndScroll(e);
+              }}
+              className={styles.link}
+              href="#"
+            >
               how it works
               <div className={styles.line} />
-            </a>
+            </Link>
           </li>
         </ul>
-        <div className={styles.basket}>
-          <div className={`${styles.basket__img} ${styles.basket__imgFull}`} />
-          <div className={styles.basket__price}>{number} USD</div>
+        <div className={`${styles.basket}`}>
+          <Link href="/cart">
+            <div
+              className={`${styles.basket__img} ${
+                item ? styles.basket__imgFull : ""
+              }`}
+            />
+          </Link>
+          <div className={styles.basket__price} style={{ marginRight: margin }}>
+            {item ? item.itemTotal : "00"},00 USD
+          </div>
         </div>
       </div>
     </nav>
