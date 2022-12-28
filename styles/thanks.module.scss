@@ -1,0 +1,95 @@
+@import "variables";
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 105px 50px;
+  width: 286px;
+  justify-items: center;
+  gap: 38.42px;
+  margin: 55px auto 0;
+  padding-top: 161px;
+  padding-bottom: 190px;
+  @media (min-width: $tablet) {
+    grid-template-rows: 119px 50px;
+    width: 339.47px;
+    gap: 29px;
+    margin: 80px auto 0;
+    padding-top: 224px;
+    padding-bottom: 288px;
+  }
+  @media (min-width: $desktop) {
+    grid-template-rows: 126px 60px;
+    width: 354px;
+    gap: 60.93px;
+    margin: 100px auto 0;
+    padding-top: 271px;
+    padding-bottom: 333px;
+  }
+  .top {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5px;
+    @media (min-width: $tablet) {
+      gap: 0;
+    }
+    @media (min-width: $desktop) {
+      gap: 12px;
+    }
+    &__title {
+      height: 50px;
+      @media (min-width: $tablet) {
+        height: 70px;
+        .bigLetter::first-letter {
+          font-size: 1em;
+          text-transform: lowercase;
+        }
+      }
+      @media (min-width: $desktop) {
+        height: 80px;
+        line-height: 70px;
+      }
+    }
+    &__description {
+      line-height: 55px;
+      @media (min-width: $tablet) {
+        margin-top: -6px;
+      }
+      @media (min-width: $tablet) {
+        margin-top: 0;
+        line-height: 34px;
+      }
+    }
+  }
+  .main {
+    margin: 0 auto;
+    &__btn {
+      width: 188px;
+      height: 50px;
+      background: #fff;
+      @media (min-width: $tablet) {
+        width: 177px;
+      }
+      @media (min-width: $desktop) {
+        width: 209px;
+        height: 60px;
+      }
+      .text {
+        font-weight: 500;
+        color: #000;
+      }
+      &:hover {
+        background-color: #000;
+        .text {
+          font-weight: 200;
+          color: $white-color;
+        }
+        .arrow__path {
+          stroke: $white-color;
+        }
+      }
+    }
+  }
+}
