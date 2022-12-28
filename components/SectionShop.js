@@ -14,7 +14,6 @@ export default function SectionShop({ product }) {
     const [allItems, setallItems] = useState([{}]);
     useEffect(() => {
       setallItems(JSON.parse(JSON.stringify(items)));
-      setCookie("emptyCart", isEmpty);
     }, [items]);
 
     const item = allItems[0];
