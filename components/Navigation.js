@@ -32,7 +32,6 @@ export default function Navigation({ product }) {
   let { addItem, items } = useCart();
   const [allItems, setallItems] = useState([{}]);
   useEffect(() => {
-    console.log("koc");
     setallItems(JSON.parse(JSON.stringify(items)));
   }, [items]);
 
