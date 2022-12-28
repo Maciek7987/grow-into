@@ -1,5 +1,5 @@
 import Slider from "./SliderPages";
-import styles from "../styles/sectionPages.module.scss";
+import styles from "../styles/SectionPages.module.scss";
 
 export default function SectionPages() {
   return (

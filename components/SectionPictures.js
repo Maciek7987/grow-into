@@ -1,5 +1,5 @@
 import Image from "next/image";
-import styles from "../styles/sectionPictures.module.scss";
+import styles from "../styles/SectionPictures.module.scss";
 import textImg from "../images/sectionPictures/textImg.svg";
 import topImg from "../images/sectionPictures/desktop/topImg.png";
 import middleImg from "../images/sectionPictures/desktop/middleImg.png";

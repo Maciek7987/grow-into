@@ -40,13 +40,13 @@ export default function Navigation({ product, hide }) {
   //scroll
   const [lastScrollY, setLastScrollY] = useState(0);
   const [hidden, setHidden] = useState(false);
-  const hiddenMenu = () => {
-    if (window.scrollY > lastScrollY) setHidden(true);
-    else setHidden(false);
-    setLastScrollY(window.scrollY);
-  };
 
   useEffect(() => {
+    const hiddenMenu = () => {
+      if (window.scrollY > lastScrollY) setHidden(true);
+      else setHidden(false);
+      setLastScrollY(window.scrollY);
+    };
     window.addEventListener("scroll", hiddenMenu);
     return () => window.removeEventListener("scroll", hiddenMenu);
   }, [lastScrollY]);
