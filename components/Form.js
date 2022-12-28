@@ -1,4 +1,7 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
+import { useRouter } from "next/router";
+import { setCookie } from "cookies-next";
+import { useCart } from "react-use-cart";
 import { useForm, Controller } from "react-hook-form";
 import { Country, State } from "country-state-city";
 import Select, { components } from "react-select";
@@ -11,6 +14,7 @@ const Input = ({ autoComplete, ...props }) => (
 );
 
 export default function Form({ item }) {
+  const router = useRouter();
   const [states, setStates] = useState([]);
   const [oldValueCountry, setoldValueCountrye] = useState();
 
@@ -22,11 +26,15 @@ export default function Form({ item }) {
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const { removeItem } = useCart();
 
   const onSubmit = (data) => {
-    console.log(data);
+    const order = { customerData: { ...data }, orderDetails: { ...item } };
+    console.log(order);
+    removeItem(item.id);
+    setCookie("emptyCart", "true");
+    return router.push("/thanks");
   };
-  console.log(errors);
 
   const handleChange = ({ value }) => {
     const states = State.getStatesOfCountry(value); //states that are in the country, e.target.value = countryCode
@@ -120,7 +128,7 @@ export default function Form({ item }) {
             name="country"
             control={control}
             rules={{
-              required: " Enter a country / region",
+              required: "Enter a country / region",
             }}
             render={({ field }) => (
               <Select
@@ -490,11 +498,7 @@ export default function Form({ item }) {
         </div>
         <p className={styles.invalid}>{errors.cb?.message}</p>
       </section>
-      <input
-        type="submit"
-        value="Pay now"
-        className={styles.form__btn}
-      />
+      <input type="submit" value="Pay now" className={styles.form__btn} />
     </form>
   );
 }
