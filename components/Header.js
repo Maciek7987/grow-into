@@ -6,11 +6,19 @@ import styles from "../styles/Header.module.scss";
 import book from "../images/header/book1.png";
 
 export default function Header({ product }) {
-  let { addItem } = useCart();
-  const [item, setItem] = useState({});
+  // let { addItem } = useCart();
+  // const [item, setItem] = useState({});
+  // useEffect(() => {
+  //   setItem(JSON.parse(window.localStorage.getItem("react-use-cart")).items[0]);
+  // }, []);
+  const { addItem, items } = useCart();
+  const [allItems, setallItems] = useState([{}]);
   useEffect(() => {
-    setItem(JSON.parse(window.localStorage.getItem("react-use-cart")).items[0]);
-  }, []);
+    setallItems(JSON.parse(JSON.stringify(items)));
+    setCookie("emptyCart", isEmpty);
+  }, [items]);
+
+  const item = allItems[0];
 
   return (
     <header className={styles.header}>

@@ -5,11 +5,19 @@ import Slider from "./SliderShop";
 import styles from "../styles/SectionShop.module.scss";
 
 export default function SectionShop({ product }) {
-  let { addItem } = useCart();
-  const [item, setItem] = useState({});
-  useEffect(() => {
-    setItem(JSON.parse(window.localStorage.getItem("react-use-cart")).items[0]);
-  }, []);
+  // let { addItem } = useCart();
+  // const [item, setItem] = useState({});
+  // useEffect(() => {
+  //   setItem(JSON.parse(window.localStorage.getItem("react-use-cart")).items[0]);
+  // }, []);
+    const { items } = useCart();
+    const [allItems, setallItems] = useState([{}]);
+    useEffect(() => {
+      setallItems(JSON.parse(JSON.stringify(items)));
+      setCookie("emptyCart", isEmpty);
+    }, [items]);
+
+    const item = allItems[0];
   return (
     <section className={styles.section}>
       <article className={styles.wrapper}>
