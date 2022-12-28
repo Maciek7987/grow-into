@@ -6,7 +6,7 @@ import { useMargin } from "../hooks/useMargin";
 import Link from "next/link";
 import styles from "../styles/cart.module.scss";
 
-export default function cart({ product }) {
+export default function Cart({ product }) {
   //cart
   const { isEmpty, addItem, updateItemQuantity, removeItem, items } = useCart();
   const [allItems, setallItems] = useState([{}]);

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import styles from "../styles/order.module.scss";
 import Form from "../components/Form";
 
-export default function order() {
+export default function Order() {
 
   const [item, setItem] = useState({});
   useEffect(() => {

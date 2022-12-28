@@ -1,7 +1,7 @@
 import Link from "next/link";
 import styles from "../styles/thanks.module.scss";
 
-export default function thanks() {
+export default function Thanks() {
   return (
     <section className={styles.thanks}>
       <div className={styles.wrapper}>
