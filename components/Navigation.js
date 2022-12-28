@@ -29,10 +29,14 @@ export default function Navigation({ product }) {
   };
 
   //cart
-  const [item, setItem] = useState({});
+  let { addItem, items } = useCart();
+  const [allItems, setallItems] = useState([{}]);
   useEffect(() => {
-    setItem(JSON.parse(window.localStorage.getItem("react-use-cart")).items[0]);
-  }, []);
+    console.log("koc");
+    setallItems(JSON.parse(JSON.stringify(items)));
+  }, [items]);
+
+  const item = allItems[0];
 
   //scroll
   const [lastScrollY, setLastScrollY] = useState(0);
