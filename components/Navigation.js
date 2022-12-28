@@ -7,7 +7,7 @@ import Link from "next/link";
 import styles from "../styles/Navigation.module.scss";
 import logo from "../images/navigation/logo.svg";
 
-export default function Navigation({ product }) {
+export default function Navigation({ product, hide }) {
   //redirect and scroll to section How it works
   const router = useRouter();
   const redirectAndScroll = (e) => {
@@ -61,7 +61,7 @@ export default function Navigation({ product }) {
   let margin = useMargin(item, marginValueObject);
 
   return (
-    <nav className={`${styles.navigation} ${hidden && styles.hidden}`}>
+    <nav className={`${styles.navigation} ${hide && hidden && styles.hidden}`}>
       <div className={styles.logo}>
         <Link href="/">
           <div className={styles.wrap} />

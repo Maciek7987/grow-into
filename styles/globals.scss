@@ -325,3 +325,17 @@ img {
     backdrop-filter: blur(5px);
   }
 }
+
+//LOADING
+
+#nprogress .bar {
+  background: #000 !important;
+}
+#nprogress .peg {
+  box-shadow: 0 0 10px #000, 0 0 5px #000 !important;
+}
+
+#nprogress .spinner-icon {
+  border-top-color: #000 !important;
+  border-left-color: #000 !important;
+}
